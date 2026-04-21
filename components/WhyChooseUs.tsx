@@ -1,117 +1,103 @@
-"use client";
-
-import { useRef } from "react";
-import { useInView } from "framer-motion";
-import Link from "next/link";
-
 const reasons = [
   {
-    title: "Dedicated to client-first solutions",
+    number: "01",
+    title: "Dedicated to Client-first solutions",
     description:
-      "We focus on understanding and prioritizing each client's unique needs. Our solutions are tailored to deliver the best possible outcomes for them.",
-    accent: true,
-  },
-  {
-    title: "Efficient claims assistance",
-    description:
-      "We provide fast and hassle-free support throughout the claims process. Our team ensures quick resolution so clients can recover without delays.",
+      "We focus on understanding and prioritizing each client's unique needs. Our solutions are tailored to deliver the best outcomes for them.",
     accent: false,
   },
   {
-    title: "Access to leading insurers in Rwanda",
+    number: "02",
+    title: "Efficient claims assistance with fast resolution.",
     description:
-      "We work closely with the top insurance providers in Rwanda. This ensures our clients get comprehensive coverage at competitive rates.",
+      "We provide fast and hussle-free support throughout the claims process. Our team ensures quick resolution so clients can recover without delays.",
+    accent: false,
+  },
+  {
+    number: "03",
+    title: "Access to leading insurers in Rwanda.",
+    description:
+      "We work closely with the top insurance provider in Rwanda. This ensures our clients get comprehensive coverage at competitive rates.",
     accent: true,
   },
 ];
 
-const bgImage = "/insurance.jpg";
-
 export default function WhyChooseUs() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-
   return (
-    <section ref={ref} className="relative w-full overflow-hidden">
-      {/* Fixed/Parallax Background */}
-      <div
-        className="absolute inset-0 bg-fixed bg-cover bg-center"
-        style={{ backgroundImage: `url(${bgImage})` }}
-        aria-hidden="true"
-      />
-      {/* Dark primary overlay */}
-      <div
-        className="absolute inset-0 bg-primary opacity-85"
-        aria-hidden="true"
-      />
+    <section id="why-us" className="bg-white section-padding py-24">
+      <div className="text-center mb-16">
+        <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
+          Why ZAHABU
+        </p>
+        <h2 className="text-primary text-4xl font-bold mb-3">Why Choose Us</h2>
+        <div className="w-10 h-1 bg-accent rounded-full mx-auto mb-5" />
+        <p className="text-muted text-sm max-w-lg mx-auto leading-relaxed">
+          Dedicated to delivering professional, structured, and client-centered
+          insurance solutions across Rwanda.
+        </p>
+      </div>
 
-      {/* Content */}
-      <div className="relative z-10 section-padding py-24">
-        {/* Header */}
-        <div className="text-start mb-16">
-          <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
-            Why Us
-          </p>
-          <h2 className="text-white text-4xl md:text-5xl font-bold mb-4">
-            Why Choose ZAHABU?
-          </h2>
-          <span className="block w-96 h-0.5 bg-accent rounded-full" />
-          <p className="text-white/60 text-base mt-2">
-            From concept we deliver solutions built on trust, expertise, and
-            client-first thinking.
-          </p>
-        </div>
-
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {reasons.map((reason, i) => (
-            <div
-              key={i}
-              className={`relative overflow-hidden rounded-xl p-8 flex flex-col gap-4 ${
-                reason.accent
-                  ? "bg-accent text-primary"
-                  : "bg-white/10 backdrop-blur-sm text-white border border-white/20"
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {reasons.map((reason, i) => (
+          <div
+            key={i}
+            className={`relative rounded-xl p-7 overflow-hidden flex flex-col gap-4 group hover:-translate-y-1 transition-transform duration-300 ${
+              reason.accent
+                ? "bg-accent"
+                : "bg-[#F7F7F7] border border-gray-100"
+            }`}
+          >
+            <span
+              className={`text-5xl font-black leading-none opacity-15 ${
+                reason.accent ? "text-primary" : "text-accent"
               }`}
             >
-              {/* Left border accent bar */}
-              <div
-                className={`absolute left-0 top-8 w-1 h-10 rounded-r-full ${
-                  reason.accent ? "bg-primary" : "bg-accent"
-                }`}
-              />
+              {reason.number}
+            </span>
+            <h3
+              className={`font-bold text-base uppercase tracking-wide leading-snug ${
+                reason.accent ? "text-primary" : "text-primary"
+              }`}
+            >
+              {reason.title}
+            </h3>
+            <p
+              className={`text-sm leading-relaxed ${
+                reason.accent ? "text-primary/75" : "text-muted"
+              }`}
+            >
+              {reason.description}
+            </p>
+            <div
+              className={`absolute bottom-0 right-0 w-16 h-16 rounded-tl-full opacity-20 ${
+                reason.accent ? "bg-primary" : "bg-accent"
+              }`}
+            />
+          </div>
+        ))}
+      </div>
 
-              <h3
-                className={`text-xl font-bold leading-snug ${
-                  reason.accent ? "text-primary" : "text-white"
-                }`}
-              >
-                {reason.title}
-              </h3>
-
-              {/* Short divider */}
-              <div
-                className={`w-8 h-0.5 rounded-full ${
-                  reason.accent ? "bg-primary/40" : "bg-white/30"
-                }`}
-              />
-
-              <p
-                className={`text-sm leading-relaxed ${
-                  reason.accent ? "text-primary/80" : "text-white/70"
-                }`}
-              >
-                {reason.description}
-              </p>
-
-              {/* Decorative circle bottom right */}
-              <div
-                className={`absolute bottom-0 right-0 w-16 h-16 rounded-tl-full opacity-20 ${
-                  reason.accent ? "bg-primary" : "bg-white"
-                }`}
-              />
-            </div>
-          ))}
+      {/* Service Commitment Banner */}
+      <div className="mt-16 bg-primary rounded-xl p-10 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div>
+          <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
+            Our Commitment
+          </p>
+          <h3 className="text-white text-2xl font-bold mb-2">
+            Committed to Your Protection
+          </h3>
+          <p className="text-white/60 text-sm leading-relaxed max-w-md">
+            Professional and structured insurance solutions, clear communication,
+            direct engagement with insurers, and continuous support throughout
+            the insurance lifecycle.
+          </p>
         </div>
+        <a
+          href="#contact"
+          className="flex-shrink-0 bg-accent text-primary font-bold px-8 py-3 rounded-sm uppercase tracking-widest text-sm hover:opacity-90 transition-opacity duration-200"
+        >
+          Get In Touch
+        </a>
       </div>
     </section>
   );
