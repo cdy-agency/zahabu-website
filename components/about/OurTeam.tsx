@@ -1,21 +1,27 @@
 const team = [
   {
-    name: "Bugirimfura Ezechiel Toda",
+    name: "Gahima Pierre",
     role: "C.E.O",
-    initial: "B",
+    initial: "G",
     bio: "A business development and insurance professional with extensive experience in client acquisition, broker management, and sales strategy across major Rwandan insurers including Old Mutual, Zamara, and Prime Insurance. Currently serves as a Business Development Officer at Old Mutual Insurance Rwanda.",
   },
   {
     name: "Ntezimana Jerome",
     role: "C.F.O",
     initial: "N",
-    bio: "Chief Finance Officer at UB Connect Ltd since 2024 and Head Financial Manager at Akagera Management Company since 2019. Holds an MSc in Taxation and a BBA from the National University of Rwanda, is a Certified Public Accountant (CPAK), and an RRA-authorized Tax Advisor.",
+    bio: "Chief Finance Officer at UB Connect Ltd since 2024 and Head Financial Manager at Akagera Management Company since 2019. Previously served as Director of Finance and Administration at Nuru East Africa Ltd and Finance Officer at Tigo Rwanda. Holds an MSc in Taxation and a BBA from the National University of Rwanda, is a Certified Public Accountant (CPAK), and an RRA-authorized Tax Advisor.",
   },
   {
-    name: "Kanazayire Marie Denise",
+    name: "Umuhoza God's Answer",
     role: "C.O.O",
-    initial: "K",
-    bio: "A finance and operations professional with extensive experience in accounting, tax advisory, auditing, and insurance services. Holds a Bachelor's degree in Business Administration and has held key positions at SONARWA G.I, SAG-GmbH, and ELECTROGAZ.",
+    initial: "U",
+    bio: "Holds a Bachelor's Degree in Business Management and has over four years of experience in the insurance industry, having worked with BK Insurance and Britam Insurance. She has developed strong expertise in insurance operations, client relationship management, and business development.",
+  },
+  {
+    name: "Bizaba Loic",
+    role: "BDM",
+    initial: "B",
+    bio: "A dynamic Head of Business Development known for driving growth through strong client relationships and strategic partnerships. With a sharp understanding of market opportunities, he specializes in identifying high-value prospects, nurturing long-term collaborations, and turning ideas into scalable business results.",
   },
 ];
 
@@ -34,13 +40,12 @@ export default function OurTeam() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {team.map((member, i) => (
           <div
             key={i}
             className="group bg-[#F7F7F7] rounded-xl overflow-hidden border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
           >
-
             <div className="p-7">
               {/* Avatar + name row */}
               <div className="flex items-center gap-4 mb-5">
@@ -60,11 +65,9 @@ export default function OurTeam() {
                 </div>
               </div>
 
-              {/* Left border accent */}
+              {/* Bio */}
               <div className="border-l-2 border-accent pl-4">
-                <p className="text-muted text-sm leading-relaxed">
-                  {member.bio}
-                </p>
+                <p className="text-muted text-sm leading-relaxed">{member.bio}</p>
               </div>
             </div>
           </div>

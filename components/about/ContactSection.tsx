@@ -1,7 +1,7 @@
 export default function ContactSection() {
   return (
-    <section className="relative bg-white section-padding py-24 overflow-hidden">
-      {/* Decorative blobs matching Image 5 */}
+    <section id="contact" className="relative bg-white section-padding py-24 overflow-hidden">
+      {/* Decorative blobs */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-primary/8 rounded-br-full" />
       <div className="absolute top-0 right-48 w-48 h-48 bg-primary/5 rounded-bl-full" />
       <div className="absolute bottom-0 right-0 w-56 h-56 bg-primary/8 rounded-tl-full" />
@@ -16,7 +16,13 @@ export default function ContactSection() {
           <br />
           <span className="text-primary">To Contact Us</span>
         </h2>
-        <div className="w-10 h-1 bg-accent rounded-full mb-12" />
+        <div className="w-10 h-1 bg-accent rounded-full mb-6" />
+
+        <p className="text-muted text-sm max-w-md leading-relaxed mb-12">
+          Whether you&apos;re an individual, SME, or corporate organization — we
+          are ready to help you find the right insurance coverage. Reach out
+          today.
+        </p>
 
         <div className="flex flex-col gap-5">
           {/* Email */}
@@ -72,6 +78,35 @@ export default function ContactSection() {
               +250 788 381 630
             </span>
           </a>
+
+          {/* Location */}
+          <div className="flex items-center gap-4 group">
+            <div className="w-12 h-12 rounded-full border-2 border-primary/20 flex items-center justify-center">
+              <svg
+                width="18"
+                height="18"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+                className="text-primary"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                />
+              </svg>
+            </div>
+            <span className="text-primary font-bold text-lg tracking-wide">
+              Kigali, Rwanda
+            </span>
+          </div>
         </div>
       </div>
     </section>

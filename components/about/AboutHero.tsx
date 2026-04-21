@@ -26,7 +26,8 @@ export default function AboutHero() {
         <div className="w-14 h-1 bg-accent rounded-full mb-6" />
         <p className="text-white/65 text-base max-w-lg leading-relaxed">
           Rwanda&apos;s emerging insurance brokerage firm — built on trust,
-          expertise, and a commitment to putting clients first.
+          expertise, and a commitment to putting clients first. Established in
+          2025, headquartered in Kigali.
         </p>
       </div>
     </section>

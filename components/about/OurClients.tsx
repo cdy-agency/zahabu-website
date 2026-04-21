@@ -27,7 +27,7 @@ const clients = [
 
 export default function OurClients() {
   return (
-    <section className="bg-[#F7F7F7] section-padding py-24">
+    <section id="clients" className="bg-white section-padding py-24">
       <div className="text-center mb-16">
         <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
           Who We Serve
@@ -43,7 +43,7 @@ export default function OurClients() {
             className={`relative rounded-xl overflow-hidden flex flex-col ${
               client.accent
                 ? "bg-accent"
-                : "bg-white border border-gray-100 shadow-sm"
+                : "bg-[#F7F7F7] border border-gray-100 shadow-sm"
             }`}
           >
             {/* Logo area */}
