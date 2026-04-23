@@ -82,7 +82,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-primary opacity-85" />
 
       <div
-        className="relative z-10 flex items-center justify-center min-h-screen text-center px-6 [perspective:var(--h-p)]"
+        className="relative z-10 flex items-center justify-center min-h-screen text-center px-6 perspective-(--h-p)"
         style={{ ["--h-p" as string]: `${PERSPECTIVE_PX}px` }}
       >
         {reduce ? (
@@ -115,7 +115,7 @@ export default function HeroSection() {
           </div>
         ) : (
           <motion.div
-            className="max-w-4xl [transform-style:preserve-3d]"
+            className="max-w-4xl transform-3d"
             style={{ transformStyle: "preserve-3d" }}
             initial="hidden"
             animate="show"
@@ -125,7 +125,7 @@ export default function HeroSection() {
             }}
           >
             <motion.span
-              className="block text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight [transform-style:preserve-3d]"
+              className="block text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight transform-3d"
               style={{ transformPerspective: PERSPECTIVE_PX }}
               variants={{
                 hidden: { opacity: 0, rotateX: 52, y: 45, z: -70 },
