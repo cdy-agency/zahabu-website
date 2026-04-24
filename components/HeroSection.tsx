@@ -6,8 +6,7 @@ import { Typewriter } from "react-simple-typewriter";
 import {
   BTN_HOVER,
   BTN_TAP,
-  EASE_3D,
-  PERSPECTIVE_PX,
+  EASE,
   SectionTransition,
   SPRING_HOVER,
 } from "@/components/motion";
@@ -81,10 +80,7 @@ export default function HeroSection() {
 
       <div className="absolute inset-0 bg-primary opacity-85" />
 
-      <div
-        className="relative z-10 flex items-center justify-center min-h-screen text-center px-6 perspective-(--h-p)"
-        style={{ ["--h-p" as string]: `${PERSPECTIVE_PX}px` }}
-      >
+      <div className="relative z-10 flex min-h-screen items-center justify-center px-6 text-center">
         {reduce ? (
           <div className="max-w-4xl">
             <h1 className="text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
@@ -115,59 +111,37 @@ export default function HeroSection() {
           </div>
         ) : (
           <motion.div
-            className="max-w-4xl transform-3d"
-            style={{ transformStyle: "preserve-3d" }}
+            className="max-w-4xl"
             initial="hidden"
             animate="show"
             variants={{
               hidden: {},
-              show: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+              show: { transition: { staggerChildren: 0.08, delayChildren: 0.15 } },
             }}
           >
             <motion.span
-              className="block text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight transform-3d"
-              style={{ transformPerspective: PERSPECTIVE_PX }}
+              className="block text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl"
               variants={{
-                hidden: { opacity: 0, rotateX: 52, y: 45, z: -70 },
-                show: {
-                  opacity: 1,
-                  rotateX: 0,
-                  y: 0,
-                  z: 0,
-                  transition: { duration: 0.8, ease: EASE_3D },
-                },
+                hidden: { opacity: 0, y: 16 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
               }}
             >
               WELCOME TO ZAHABU
             </motion.span>
             <motion.span
-              className="block mt-1 text-white text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight [transform-style:preserve-3d]"
-              style={{ transformPerspective: PERSPECTIVE_PX }}
+              className="mt-1 block text-4xl font-extrabold leading-tight text-white md:text-5xl lg:text-6xl"
               variants={{
-                hidden: { opacity: 0, rotateX: 40, y: 36, z: -55 },
-                show: {
-                  opacity: 1,
-                  rotateX: 0,
-                  y: 0,
-                  z: 0,
-                  transition: { duration: 0.8, ease: EASE_3D },
-                },
+                hidden: { opacity: 0, y: 16 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
               }}
             >
               SOLUTIONS LTD
             </motion.span>
             <motion.h2
-              className="text-accent text-xl md:text-2xl font-semibold my-8 [transform-style:preserve-3d]"
-              style={{ transformPerspective: PERSPECTIVE_PX }}
+              className="my-8 text-xl font-semibold text-accent md:text-2xl"
               variants={{
-                hidden: { opacity: 0, rotateX: 24, y: 16, z: -32 },
-                show: {
-                  opacity: 1,
-                  rotateX: 0,
-                  y: 0,
-                  z: 0,
-                  transition: { duration: 0.65, ease: EASE_3D },
-                },
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE } },
               }}
             >
               <Typewriter
@@ -186,17 +160,10 @@ export default function HeroSection() {
               />
             </motion.h2>
             <motion.p
-              className="text-white/70 text-base md:text-lg max-w-xl mx-auto leading-relaxed mb-10"
-              style={{ transformPerspective: PERSPECTIVE_PX }}
+              className="mb-10 max-w-xl text-base leading-relaxed text-white/70 md:text-lg mx-auto"
               variants={{
-                hidden: { opacity: 0, y: 20, rotateX: 12, z: -20 },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  rotateX: 0,
-                  z: 0,
-                  transition: { duration: 0.6, ease: EASE_3D },
-                },
+                hidden: { opacity: 0, y: 12 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
               }}
             >
               An Insurance Brokerage Firm in Rwanda — collaborating with organizations and
@@ -204,8 +171,8 @@ export default function HeroSection() {
             </motion.p>
             <motion.div
               variants={{
-                hidden: { opacity: 0, y: 12 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE_3D } },
+                hidden: { opacity: 0, y: 8 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE } },
               }}
             >
               <HeroCTAs />
@@ -227,7 +194,7 @@ export default function HeroSection() {
           className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/50"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 0.5, y: 0 }}
-          transition={{ delay: 1, duration: 0.6, ease: EASE_3D }}
+          transition={{ delay: 1, duration: 0.5, ease: EASE }}
           aria-hidden
         >
           <span className="text-white text-xs tracking-widest uppercase">Scroll</span>

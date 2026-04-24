@@ -1,4 +1,9 @@
+"use client";
+
+import { motion } from "framer-motion";
 import Image from "next/image";
+
+import { EASE, SectionTransition } from "@/components/motion";
 
 const staff = [
   {
@@ -38,7 +43,7 @@ const teamImages = [
 
 export default function OurTeam() {
   return (
-    <section className="bg-white section-padding py-24">
+    <SectionTransition className="bg-white section-padding py-24" id="our-team">
 
       {/* ── STAFF HEADER ─────────────────────────────── */}
       <div className="text-center mb-16">
@@ -147,24 +152,43 @@ export default function OurTeam() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {teamImages.map((item, i) => (
-          <div
+          <motion.div
             key={i}
-            className="relative w-full h-80 rounded-xl overflow-hidden group"
+            className="relative w-full h-80 overflow-hidden rounded-xl"
+            whileHover="hover"
+            initial="rest"
+            variants={{ rest: {}, hover: {} }}
           >
-            <Image
-              src={item.image}
-              alt={item.alt}
-              fill
-              className="object-cover object-center group-hover:scale-105 transition-transform duration-500"
+            <motion.div
+              className="absolute inset-0"
+              variants={{
+                rest: { scale: 1 },
+                hover: {
+                  scale: 1.05,
+                  transition: { duration: 0.45, ease: EASE },
+                },
+              }}
+            >
+              <Image
+                src={item.image}
+                alt={item.alt}
+                fill
+                className="object-cover object-center"
+                sizes="(min-width: 768px) 50vw, 100vw"
+              />
+            </motion.div>
+            <motion.div
+              className="pointer-events-none absolute inset-0 bg-primary"
+              variants={{
+                rest: { opacity: 0.1 },
+                hover: { opacity: 0, transition: { duration: 0.3, ease: EASE } },
+              }}
             />
-            {/* Subtle overlay */}
-            <div className="absolute inset-0 bg-primary opacity-10 group-hover:opacity-0 transition-opacity duration-300" />
-            {/* Accent corner bar */}
             <div className="absolute bottom-0 left-0 right-0 h-1 bg-accent" />
-          </div>
+          </motion.div>
         ))}
       </div>
 
-    </section>
+    </SectionTransition>
   );
 }

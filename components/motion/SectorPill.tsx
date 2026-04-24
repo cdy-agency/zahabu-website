@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { SPRING_HOVER } from "./motion-3d";
+import { SPRING_HOVER } from "./presets";
 
 type Props = { children: string; className?: string };
 
@@ -13,9 +13,8 @@ export function SectorPill({ children, className }: Props) {
   return (
     <motion.span
       className={className}
-      whileHover={{ y: -3, scale: 1.04, z: 12, rotateX: -2 }}
-      whileTap={{ scale: 0.98 }}
-      style={{ transformStyle: "preserve-3d" }}
+      whileHover={{ y: -2, scale: 1.03 }}
+      whileTap={{ scale: 0.99 }}
       transition={SPRING_HOVER}
     >
       {children}

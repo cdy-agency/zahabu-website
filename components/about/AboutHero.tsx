@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { EASE_3D, PERSPECTIVE_PX, SectionTransition } from "@/components/motion";
+import { EASE, SectionTransition } from "@/components/motion";
 
 export default function AboutHero() {
   const reduce = useReducedMotion();
@@ -10,7 +10,7 @@ export default function AboutHero() {
   return (
     <SectionTransition
       when="mount"
-      className="relative w-full min-h-[70vh] overflow-hidden flex items-end"
+      className="relative flex w-full min-h-[70vh] items-end overflow-hidden"
     >
       <Image
         src="/nurse.webp"
@@ -20,53 +20,47 @@ export default function AboutHero() {
         className="object-cover object-center"
       />
       <div className="absolute inset-0 bg-primary opacity-80" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-accent opacity-10 rounded-tl-full" />
+      <div className="absolute right-0 bottom-0 h-64 w-64 rounded-tl-full bg-accent opacity-10" />
 
-      <div
-        className="relative z-10 section-padding pb-20 pt-44 [perspective:var(--a-p)]"
-        style={{ ["--a-p" as string]: `${PERSPECTIVE_PX}px` }}
-      >
+      <div className="section-padding relative z-10 pt-44 pb-20">
         {reduce ? (
           <div className="max-w-2xl">
             <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-4">Who We Are</p>
-            <h1 className="text-white text-5xl md:text-6xl font-bold leading-tight mb-4">
+            <h1 className="text-white text-5xl font-bold leading-tight md:text-6xl mb-4">
               About <span className="text-accent">ZAHABU</span>
               <br />
               Solutions Ltd.
             </h1>
-            <div className="w-14 h-1 bg-accent rounded-full mb-6" />
-            <p className="text-white/65 text-base max-w-lg leading-relaxed">
+            <div className="mb-6 h-1 w-14 rounded-full bg-accent" />
+            <p className="text-base text-white/65 max-w-lg leading-relaxed">
               Rwanda&apos;s emerging insurance brokerage firm — built on trust, expertise, and a
               commitment to putting clients first. Established in 2025, headquartered in Kigali.
             </p>
           </div>
         ) : (
           <motion.div
-            className="max-w-2xl [transform-style:preserve-3d]"
-            style={{ transformStyle: "preserve-3d" }}
+            className="max-w-2xl"
             initial="hidden"
             animate="show"
             variants={{
               hidden: {},
-              show: { transition: { staggerChildren: 0.1, delayChildren: 0.12 } },
+              show: { transition: { staggerChildren: 0.08, delayChildren: 0.1 } },
             }}
           >
             <motion.p
               className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-4"
-              style={{ transformPerspective: PERSPECTIVE_PX }}
               variants={{
-                hidden: { opacity: 0, rotateX: 28, y: 16, z: -32 },
-                show: { opacity: 1, rotateX: 0, y: 0, z: 0, transition: { duration: 0.6, ease: EASE_3D } },
+                hidden: { opacity: 0, y: 10 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.45, ease: EASE } },
               }}
             >
               Who We Are
             </motion.p>
             <motion.h1
-              className="text-white text-5xl md:text-6xl font-bold leading-tight mb-4"
-              style={{ transformPerspective: PERSPECTIVE_PX }}
+              className="text-5xl font-bold leading-tight text-white md:text-6xl mb-4"
               variants={{
-                hidden: { opacity: 0, rotateX: 22, y: 28, z: -48 },
-                show: { opacity: 1, rotateX: 0, y: 0, z: 0, transition: { duration: 0.7, ease: EASE_3D } },
+                hidden: { opacity: 0, y: 12 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: EASE } },
               }}
             >
               About <span className="text-accent">ZAHABU</span>
@@ -74,19 +68,17 @@ export default function AboutHero() {
               Solutions Ltd.
             </motion.h1>
             <motion.div
-              className="w-14 h-1 bg-accent rounded-full mb-6"
-              style={{ transformOrigin: "left center" }}
+              className="mb-6 h-1 w-14 origin-left rounded-full bg-accent"
               variants={{
-                hidden: { opacity: 0, scaleX: 0, rotateX: 60, z: -20 },
-                show: { opacity: 1, scaleX: 1, rotateX: 0, z: 0, transition: { duration: 0.5, ease: EASE_3D } },
+                hidden: { opacity: 0, scaleX: 0 },
+                show: { opacity: 1, scaleX: 1, transition: { duration: 0.4, ease: EASE } },
               }}
             />
             <motion.p
-              className="text-white/65 text-base max-w-lg leading-relaxed"
-              style={{ transformPerspective: PERSPECTIVE_PX }}
+              className="text-base text-white/65 max-w-lg leading-relaxed"
               variants={{
-                hidden: { opacity: 0, rotateX: 12, y: 12, z: -20 },
-                show: { opacity: 1, rotateX: 0, y: 0, z: 0, transition: { duration: 0.55, ease: EASE_3D } },
+                hidden: { opacity: 0, y: 8 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
               }}
             >
               Rwanda&apos;s emerging insurance brokerage firm — built on trust, expertise, and a

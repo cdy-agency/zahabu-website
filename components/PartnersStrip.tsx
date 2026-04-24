@@ -29,10 +29,7 @@ export default function PartnersStrip() {
   const reduce = useReducedMotion();
 
   return (
-    <SectionTransition
-      slide="up"
-      className="bg-white border-y border-gray-100 py-8 overflow-hidden section-padding"
-    >
+    <SectionTransition className="bg-white border-y border-gray-100 py-8 overflow-hidden section-padding">
       {/* Label */}
       <p className="text-center text-muted text-xs tracking-[0.3em] uppercase font-semibold mb-6">
         Trusted by Industry Leaders
@@ -44,7 +41,7 @@ export default function PartnersStrip() {
         <div className="absolute left-0 top-0 h-full w-24 bg-linear-to-r from-white to-transparent z-10 pointer-events-none" />
         <div className="absolute right-0 top-0 h-full w-24 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
 
-        <div className="partners-track flex items-center gap-10 [perspective:800px]">
+        <div className="partners-track flex items-center gap-10">
           {partners.map((partner, i) =>
             reduce ? (
               <div
@@ -62,16 +59,12 @@ export default function PartnersStrip() {
             ) : (
               <motion.div
                 key={i}
-                className="shrink-0 flex items-center justify-center border border-gray-200 rounded-lg px-8 py-4 min-w-35 h-16 bg-white group"
-                style={{ transformStyle: "preserve-3d" }}
+                className="group flex h-16 min-w-35 shrink-0 items-center justify-center rounded-lg border border-gray-200 bg-white px-8 py-4"
                 whileHover={{
-                  y: -6,
-                  scale: 1.05,
-                  rotateX: -6,
-                  rotateY: 2,
-                  z: 40,
+                  y: -3,
+                  scale: 1.03,
                   borderColor: "var(--color-primary, #0f3356)",
-                  boxShadow: "0 18px 40px -14px rgba(0,0,0,0.2)",
+                  boxShadow: "0 14px 32px -12px rgba(0,0,0,0.15)",
                 }}
                 transition={SPRING_HOVER}
               >

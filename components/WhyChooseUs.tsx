@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useReducedMotion } from "framer-motion";
-import { BTN_HOVER, BTN_TAP, SectionTransition, SPRING_HOVER, Tilt3D } from "@/components/motion";
+import { BTN_HOVER, BTN_TAP, MotionCard, SectionTransition, SPRING_HOVER } from "@/components/motion";
 
 const reasons = [
   {
@@ -31,7 +31,7 @@ export default function WhyChooseUs() {
   const reduce = useReducedMotion();
 
   return (
-    <SectionTransition id="why-us" slide="right" className="bg-white section-padding py-24">
+    <SectionTransition id="why-us" className="bg-white section-padding py-24">
       <div className="text-center mb-16">
         <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
           Why ZAHABU
@@ -46,9 +46,8 @@ export default function WhyChooseUs() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {reasons.map((reason, i) => (
-          <Tilt3D
+          <MotionCard
             key={i}
-            tiltAmount={6}
             className={`relative rounded-xl p-7 overflow-hidden flex flex-col gap-4 group transition-shadow duration-300 ${
               reason.accent ? "bg-accent" : "bg-[#F7F7F7] border border-gray-100"
             }`}
@@ -79,7 +78,7 @@ export default function WhyChooseUs() {
                 reason.accent ? "bg-primary" : "bg-accent"
               }`}
             />
-          </Tilt3D>
+          </MotionCard>
         ))}
       </div>
 

@@ -1,4 +1,4 @@
-import { SectionTransition, Tilt3D } from "@/components/motion";
+import { MotionCard, SectionTransition } from "@/components/motion";
 
 const clients = [
   {
@@ -29,7 +29,7 @@ const clients = [
 
 export default function OurClients() {
   return (
-    <SectionTransition id="clients" slide="left" className="bg-white section-padding py-24">
+    <SectionTransition id="clients" className="bg-white section-padding py-24">
       <div className="text-center mb-16">
         <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
           Who We Serve
@@ -40,9 +40,8 @@ export default function OurClients() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {clients.map((client, i) => (
-          <Tilt3D
+          <MotionCard
             key={i}
-            tiltAmount={5}
             className={`relative rounded-xl overflow-hidden flex flex-col ${
               client.accent
                 ? "bg-accent"
@@ -99,7 +98,7 @@ export default function OurClients() {
                 client.accent ? "bg-primary" : "bg-accent"
               }`}
             />
-          </Tilt3D>
+          </MotionCard>
         ))}
       </div>
     </SectionTransition>

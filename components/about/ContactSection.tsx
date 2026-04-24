@@ -13,14 +13,13 @@ export default function ContactSection() {
   return (
     <SectionTransition
       id="contact"
-      slide="up"
       className="relative bg-white section-padding py-24 overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-64 h-64 bg-primary/8 rounded-br-full" />
       <div className="absolute top-0 right-48 w-48 h-48 bg-primary/5 rounded-bl-full" />
       <div className="absolute bottom-0 right-0 w-56 h-56 bg-primary/8 rounded-tl-full" />
 
-      <div className="relative z-10 flex flex-col items-center text-center [perspective:1000px]">
+      <div className="relative z-10 flex flex-col items-center text-center">
         <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-4">
           Get In Touch
         </p>

@@ -56,12 +56,11 @@ export default function Navbar() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className="absolute top-0 left-0 z-50 w-full min-w-0 max-w-full overflow-x-clip section-padding pt-3 sm:pt-4 [perspective:1200px]">
+    <div className="section-padding absolute top-0 left-0 z-50 w-full min-w-0 max-w-full overflow-x-clip pt-3 sm:pt-4">
       <motion.nav
         className="relative w-full rounded-2xl md:rounded-full bg-primary/80 backdrop-blur-sm px-4 py-3 sm:px-6 md:px-8 md:py-4 border border-white/5 shadow-lg"
-        style={{ transformStyle: "preserve-3d" }}
         initial={false}
-        whileHover={reduce ? undefined : { y: -1, z: 6, boxShadow: "0 16px 40px -14px rgba(0,0,0,0.3)" }}
+        whileHover={reduce ? undefined : { y: -1, boxShadow: "0 16px 40px -14px rgba(0,0,0,0.3)" }}
         transition={SPRING_HOVER}
         aria-label="Main navigation"
       >

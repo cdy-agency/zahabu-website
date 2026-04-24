@@ -14,7 +14,7 @@ export default function Footer() {
   const reduce = useReducedMotion();
 
   return (
-    <footer className="w-full min-w-0 max-w-full overflow-x-clip bg-primary [perspective:1000px]">
+    <footer className="w-full min-w-0 max-w-full overflow-x-clip bg-primary">
       <div className="section-padding py-12 grid grid-cols-1 lg:grid-cols-2 gap-12 border-b border-white/10">
         <div className="flex flex-col justify-between gap-8">
           <div>

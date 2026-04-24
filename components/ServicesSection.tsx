@@ -1,4 +1,4 @@
-import { SectionTransition, SectorPill, Tilt3D } from "@/components/motion";
+import { MotionCard, SectionTransition, SectorPill } from "@/components/motion";
 
 const services = [
   {
@@ -93,11 +93,7 @@ const sectors = [
 
 export default function ServicesSection() {
   return (
-    <SectionTransition
-      id="services"
-      slide="left"
-      className="bg-[#F7F7F7] section-padding py-24"
-    >
+    <SectionTransition id="services" className="bg-[#F7F7F7] section-padding py-24">
       {/* Header */}
       <div className="text-center mb-16">
         <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
@@ -114,9 +110,8 @@ export default function ServicesSection() {
       {/* Services Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
         {services.map((service, i) => (
-          <Tilt3D
+          <MotionCard
             key={i}
-            tiltAmount={7}
             className={`relative rounded-xl p-7 overflow-hidden flex flex-col gap-4 ${
               service.accent
                 ? "bg-accent"
@@ -150,7 +145,7 @@ export default function ServicesSection() {
                 service.accent ? "bg-primary" : "bg-accent"
               }`}
             />
-          </Tilt3D>
+          </MotionCard>
         ))}
       </div>
 
@@ -168,9 +163,8 @@ export default function ServicesSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {classes.map((cls, i) => (
-            <Tilt3D
+            <MotionCard
               key={i}
-              tiltAmount={5}
               className="bg-white rounded-xl border border-gray-100 shadow-sm p-7"
             >
               <h4 className="text-primary font-bold text-sm uppercase tracking-widest mb-5 flex items-center gap-2">
@@ -185,7 +179,7 @@ export default function ServicesSection() {
                   </li>
                 ))}
               </ul>
-            </Tilt3D>
+            </MotionCard>
           ))}
         </div>
       </div>
@@ -201,7 +195,7 @@ export default function ServicesSection() {
           </h3>
           <div className="w-10 h-1 bg-accent rounded-full mx-auto" />
         </div>
-        <div className="flex flex-wrap gap-3 justify-center [perspective:900px]">
+        <div className="flex flex-wrap justify-center gap-3">
           {sectors.map((sector, i) => (
             <SectorPill
               key={i}

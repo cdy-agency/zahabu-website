@@ -1,4 +1,4 @@
-import { SectionTransition, Tilt3D } from "@/components/motion";
+import { MotionCard, SectionTransition } from "@/components/motion";
 
 const facts = [
   { label: "Established", value: "EST. 2025" },
@@ -11,11 +11,7 @@ const facts = [
 
 export default function CompanyProfile() {
   return (
-    <SectionTransition
-      id="about"
-      slide="left"
-      className="bg-[#F7F7F7] section-padding py-24"
-    >
+    <SectionTransition id="about" className="bg-[#F7F7F7] section-padding py-24">
       {/* Top header */}
       <div className="mb-12">
         <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
@@ -47,9 +43,8 @@ export default function CompanyProfile() {
       {/* Facts grid */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {facts.map((fact, i) => (
-          <Tilt3D
+          <MotionCard
             key={i}
-            tiltAmount={4}
             className={`rounded-xl px-5 py-4 flex flex-col gap-1 ${
               i === 0
                 ? "bg-accent"
@@ -70,7 +65,7 @@ export default function CompanyProfile() {
             >
               {fact.value}
             </p>
-          </Tilt3D>
+          </MotionCard>
         ))}
       </div>
     </SectionTransition>
