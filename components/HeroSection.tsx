@@ -17,6 +17,14 @@ function HeroCTAs() {
   const outline =
     "inline-flex items-center justify-center border-2 border-white text-white font-bold px-8 py-3 rounded-sm uppercase tracking-widest text-sm";
 
+  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    const footer = document.getElementById("footer");
+    if (footer) {
+      e.preventDefault();
+      footer.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   if (reduce) {
     return (
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -24,7 +32,8 @@ function HeroCTAs() {
           Our Services
         </a>
         <a
-          href="#contact"
+          href="#footer"
+          onClick={handleContactClick}
           className={outline + " hover:bg-white hover:text-primary transition-all duration-200"}
         >
           Contact Us
@@ -45,7 +54,8 @@ function HeroCTAs() {
         Our Services
       </motion.a>
       <motion.a
-        href="#contact"
+        href="#footer"
+        onClick={handleContactClick}
         className={outline}
         whileHover={{
           ...BTN_HOVER,
@@ -75,6 +85,7 @@ export default function HeroSection() {
         alt="Auto Appraisal Background"
         fill
         priority
+        sizes="100vw"
         className="object-cover object-center"
       />
 
@@ -180,31 +191,6 @@ export default function HeroSection() {
           </motion.div>
         )}
       </div>
-
-      {reduce ? (
-        <div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 opacity-50"
-          aria-hidden
-        >
-          <span className="text-white text-xs tracking-widest uppercase">Scroll</span>
-          <div className="w-px h-10 bg-white animate-pulse" />
-        </div>
-      ) : (
-        <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/50"
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 0.5, y: 0 }}
-          transition={{ delay: 1, duration: 0.5, ease: EASE }}
-          aria-hidden
-        >
-          <span className="text-white text-xs tracking-widest uppercase">Scroll</span>
-          <motion.div
-            className="w-px h-10 bg-white"
-            animate={{ scaleY: [0.4, 1, 0.4], opacity: [0.4, 0.8, 0.4] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </motion.div>
-      )}
     </SectionTransition>
   );
 }

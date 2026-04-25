@@ -1,11 +1,35 @@
+"use client";
+
+import Image from "next/image";
 import { MotionCard, SectionTransition, SectorPill } from "@/components/motion";
 
-const services = [
+type Service = {
+  number: string;
+  title: string;
+  description: string;
+  image: string;
+  accent: boolean;
+};
+
+type InsuranceItem = {
+  label: string;
+};
+
+type InsuranceClass = {
+  category: string;
+  icon: React.ReactNode;
+  items: InsuranceItem[];
+};
+
+type Props = {};
+
+const services: Service[] = [
   {
     number: "01",
     title: "General Insurance",
     description:
       "We offer protection for motor vehicles, properties, liabilities, and travel-related risks.",
+    image: "/vehicle.png",
     accent: false,
   },
   {
@@ -13,6 +37,7 @@ const services = [
     title: "Life & Health Insurance",
     description:
       "We provide life coverage and health insurance to safeguard individuals and families.",
+    image: "/life.png",
     accent: true,
   },
   {
@@ -20,6 +45,7 @@ const services = [
     title: "Business & Corporate Insurance",
     description:
       "ZAHABU delivers customized insurance packages tailored to your business needs.",
+    image: "/business.png",
     accent: false,
   },
   {
@@ -27,6 +53,7 @@ const services = [
     title: "Risk Advisory & Consulting",
     description:
       "Expert advice on risk identification, coverage structuring, and risk management strategies.",
+    image: "/risk.png",
     accent: false,
   },
   {
@@ -34,6 +61,7 @@ const services = [
     title: "Claims Management Support",
     description:
       "We assist clients in processing and following up on insurance claims smoothly and quickly.",
+    image: "/claims.png",
     accent: true,
   },
   {
@@ -41,45 +69,89 @@ const services = [
     title: "Policy Reviews & Renewals",
     description:
       "Ensuring your policies remain relevant, comprehensive, and cost-effective at all times.",
+    image: "/policy.png",
     accent: false,
   },
 ];
 
-const classes = [
+const classes: InsuranceClass[] = [
   {
     category: "General (Non-Life) Insurance",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-6 h-6"
+      >
+        <path d="M19 17H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h3l2-2h4l2 2h3a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2z" />
+        <circle cx="12" cy="11" r="3" />
+      </svg>
+    ),
     items: [
-      "Motor Insurance (Private & Commercial)",
-      "Fire & Property Insurance",
-      "Burglary & Theft Insurance",
-      "Goods in Transit Insurance",
-      "Marine & Cargo Insurance",
-      "Engineering & Construction (CAR/EAR)",
-      "Liability Insurance",
-      "Professional Indemnity Insurance",
+      { label: "Motor Insurance (Private & Commercial)" },
+      { label: "Fire & Property Insurance" },
+      { label: "Burglary & Theft Insurance" },
+      { label: "Goods in Transit Insurance" },
+      { label: "Marine & Cargo Insurance" },
+      { label: "Engineering & Construction (CAR/EAR)" },
+      { label: "Liability Insurance" },
+      { label: "Professional Indemnity Insurance" },
     ],
   },
   {
     category: "Life & Health Insurance",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-6 h-6"
+      >
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </svg>
+    ),
     items: [
-      "Individual Life Insurance",
-      "Group Life Insurance",
-      "Medical / Health Insurance",
-      "Personal Accident Cover",
+      { label: "Individual Life Insurance" },
+      { label: "Group Life Insurance" },
+      { label: "Medical / Health Insurance" },
+      { label: "Personal Accident Cover" },
     ],
   },
   {
     category: "Specialized Solutions",
+    icon: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.8}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-6 h-6"
+      >
+        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+      </svg>
+    ),
     items: [
-      "Agriculture Insurance",
-      "Aviation Insurance",
-      "Oil & Energy Insurance",
-      "Microinsurance Solutions",
+      { label: "Agriculture Insurance" },
+      { label: "Aviation Insurance" },
+      { label: "Oil & Energy Insurance" },
+      { label: "Microinsurance Solutions" },
     ],
   },
 ];
 
-const sectors = [
+const sectors: string[] = [
   "Corporate & SMEs",
   "Transport & Logistics",
   "Healthcare Institutions",
@@ -94,118 +166,95 @@ const sectors = [
 export default function ServicesSection() {
   return (
     <SectionTransition id="services" className="bg-[#F7F7F7] section-padding py-24">
-      {/* Header */}
+      
+      {/* HEADER */}
       <div className="text-center mb-16">
         <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
           What We Do
         </p>
         <h2 className="text-primary text-4xl font-bold mb-3">Our Services</h2>
-        <div className="w-10 h-1 bg-accent rounded-full mx-auto mb-5" />
-        <p className="text-muted text-sm max-w-lg mx-auto leading-relaxed">
-          We are committed to providing innovative, reliable, and personalized
-          insurance solutions to individuals and organizations across Rwanda.
-        </p>
       </div>
 
-      {/* Services Grid */}
+      {/* SERVICES */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-20">
         {services.map((service, i) => (
           <MotionCard
             key={i}
-            className={`relative rounded-xl p-7 overflow-hidden flex flex-col gap-4 ${
-              service.accent
-                ? "bg-accent"
-                : "bg-white border border-gray-100 shadow-sm"
+            className={`relative rounded-2xl overflow-hidden flex flex-col group ${
+              service.accent ? "bg-accent" : "bg-white border border-gray-100 shadow-sm"
             }`}
           >
-            <span
-              className={`text-4xl font-black opacity-20 leading-none ${
-                service.accent ? "text-primary" : "text-accent"
-              }`}
-            >
-              {service.number}
-            </span>
-            <h3
-              className={`font-bold text-base uppercase tracking-wide leading-snug ${
-                service.accent ? "text-primary" : "text-primary"
-              }`}
-            >
-              {service.title}
-            </h3>
-            <p
-              className={`text-sm leading-relaxed ${
-                service.accent ? "text-primary/75" : "text-muted"
-              }`}
-            >
-              {service.description}
-            </p>
-            {/* Decorative circle */}
-            <div
-              className={`absolute bottom-0 right-0 w-16 h-16 rounded-tl-full opacity-20 ${
-                service.accent ? "bg-primary" : "bg-accent"
-              }`}
-            />
+            <div className="relative w-full h-52 overflow-hidden">
+              <Image
+                src={service.image}
+                alt={service.title}
+                fill
+                className="object-cover"
+              />
+              <span className="absolute top-3 left-4 text-5xl font-black opacity-20">
+                {service.number}
+              </span>
+            </div>
+
+            <div className="px-6 py-4">
+              <h3 className="font-bold text-sm uppercase">
+                {service.title}
+              </h3>
+              <p className="text-sm mt-2">
+                {service.description}
+              </p>
+            </div>
           </MotionCard>
         ))}
       </div>
 
-      {/* Classes of Insurance */}
+      {/* CLASSES */}
       <div className="mb-20">
         <div className="text-center mb-10">
-          <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
-            Coverage
-          </p>
-          <h3 className="text-primary text-3xl font-bold mb-3">
+          <h3 className="text-3xl font-bold">
             Classes of Insurance We Handle
           </h3>
-          <div className="w-10 h-1 bg-accent rounded-full mx-auto" />
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {classes.map((cls, i) => (
-            <MotionCard
-              key={i}
-              className="bg-white rounded-xl border border-gray-100 shadow-sm p-7"
-            >
-              <h4 className="text-primary font-bold text-sm uppercase tracking-widest mb-5 flex items-center gap-2">
-                <span className="w-1 h-5 bg-accent rounded-full inline-block" />
-                {cls.category}
-              </h4>
-              <ul className="flex flex-col gap-2.5">
+            <MotionCard key={i} className="bg-white rounded-xl border p-6">
+              
+              <div className="mb-4 flex items-center gap-3 text-accent">
+                {cls.icon}
+                <h4 className="font-bold text-sm uppercase">
+                  {cls.category}
+                </h4>
+              </div>
+
+              <ul className="flex flex-col gap-2">
                 {cls.items.map((item, j) => (
-                  <li key={j} className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
-                    <span className="text-muted text-sm">{item}</span>
+                  <li key={j} className="text-sm text-muted">
+                    • {item.label}
                   </li>
                 ))}
               </ul>
+
             </MotionCard>
           ))}
         </div>
       </div>
 
-      {/* Sectors We Serve */}
+      {/* SECTORS */}
       <div>
         <div className="text-center mb-10">
-          <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
-            Industries
-          </p>
-          <h3 className="text-primary text-3xl font-bold mb-3">
-            Sectors We Serve
-          </h3>
-          <div className="w-10 h-1 bg-accent rounded-full mx-auto" />
+          <h3 className="text-3xl font-bold">Sectors We Serve</h3>
         </div>
+
         <div className="flex flex-wrap justify-center gap-3">
           {sectors.map((sector, i) => (
-            <SectorPill
-              key={i}
-              className="bg-white border border-gray-200 text-primary text-xs font-bold px-5 py-2.5 rounded-sm tracking-widest uppercase shadow-sm inline-block"
-            >
+            <SectorPill key={i}>
               {sector}
             </SectorPill>
           ))}
         </div>
       </div>
+
     </SectionTransition>
   );
 }

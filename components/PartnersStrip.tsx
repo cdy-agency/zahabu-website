@@ -10,19 +10,25 @@ const partners = [
   { name: "MAYFAIR", src: "/MAYFAIR.svg", isImage: true },
   { name: "MUA", src: "/MUA.svg", isImage: true },
   { name: "Prime", src: "/Prime.svg", isImage: true },
-  // Duplicated for seamless infinite loop
+
+  { name: "Radiant", src: "/radiant.png", isImage: true },
+  { name: "BK Insurance", src: "/bk.png", isImage: true },
+  { name: "Old Mutual", src: "/oldmatual.jpg", isImage: true },
+  { name: "Sanlam Allianz", src: "/sanlam.jpg", isImage: true },
+  { name: "Eden Care", src: "/edencare.png", isImage: true },
+  { name: "SONARWA", src: "/sonarwa.png", isImage: true },
+
+  // 🔁 Duplicate for smooth infinite scroll
   { name: "Britam", src: "/Britam.png", isImage: true },
   { name: "MAYFAIR", src: "/MAYFAIR.svg", isImage: true },
   { name: "MUA", src: "/MUA.svg", isImage: true },
   { name: "Prime", src: "/Prime.svg", isImage: true },
-  { name: "Britam", src: "/Britam.png", isImage: true },
-  { name: "MAYFAIR", src: "/MAYFAIR.svg", isImage: true },
-  { name: "MUA", src: "/MUA.svg", isImage: true },
-  { name: "Prime", src: "/Prime.svg", isImage: true },
-  { name: "Britam", src: "/Britam.png", isImage: true },
-  { name: "MAYFAIR", src: "/MAYFAIR.svg", isImage: true },
-  { name: "MUA", src: "/MUA.svg", isImage: true },
-  { name: "Prime", src: "/Prime.svg", isImage: true },
+  { name: "Radiant", src: "/radiant.png", isImage: true },
+  { name: "BK Insurance", src: "/bk.png", isImage: true },
+  { name: "Old Mutual", src: "/oldmatual.jpg", isImage: true },
+  { name: "Sanlam Allianz", src: "/sanlam.jpg", isImage: true },
+  { name: "Eden Care", src: "/edencare.png", isImage: true },
+  { name: "SONARWA", src: "/sonarwa.png", isImage: true },
 ];
 
 export default function PartnersStrip() {
@@ -53,7 +59,11 @@ export default function PartnersStrip() {
                   alt={partner.name}
                   width={100}
                   height={40}
-                  className="object-contain max-h-8 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
+                  className={`object-contain transition-all duration-300 ${
+                    partner.name === "Sanlam Allianz"
+                      ? "max-h-10 opacity-100"
+                      : "max-h-8 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100"
+                  }`}
                 />
               </div>
             ) : (
@@ -73,7 +83,11 @@ export default function PartnersStrip() {
                   alt={partner.name}
                   width={100}
                   height={40}
-                  className="object-contain max-h-8 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
+                  className={`object-contain transition-all duration-300 ${
+                    partner.name === "Sanlam Allianz"
+                      ? "max-h-10 opacity-100"
+                      : "max-h-8 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100"
+                  }`}
                 />
               </motion.div>
             )
