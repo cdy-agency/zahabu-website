@@ -29,7 +29,7 @@ export default function CompanyProfile() {
       </div>
 
       {/* Logo banner — no circle */}
-      <div className="flex items-center gap-5 bg-white border border-gray-100 rounded-xl px-7 py-5 mb-8 shadow-sm w-full max-w-lg">
+      {/* <div className="flex items-center gap-5 bg-white border border-gray-100 rounded-xl px-7 py-5 mb-8 shadow-sm w-full max-w-lg">
         <div>
           <p className="text-primary font-bold text-base leading-snug">
             ZAHABU Solutions Ltd.
@@ -38,10 +38,10 @@ export default function CompanyProfile() {
             Insurance Brokerage Services in Rwanda
           </p>
         </div>
-      </div>
+      </div> */}
 
       {/* Facts grid */}
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+      {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
         {facts.map((fact, i) => (
           <MotionCard
             key={i}
@@ -67,7 +67,7 @@ export default function CompanyProfile() {
             </p>
           </MotionCard>
         ))}
-      </div>
+      </div> */}
     </SectionTransition>
   );
 }
