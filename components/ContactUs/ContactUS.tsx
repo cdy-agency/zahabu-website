@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const RECIPIENT_EMAIL = "mucyoblaise86@gmail.com";
+const RECIPIENT_EMAIL = "zahabusolutions@gmail.com";
 
 const MAPS_URL =
   "https://www.google.com/maps/place/1%C2%B057'23.1%22S+30%C2%B005'01.0%22E/@-1.9564195,30.0810299,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-1.9564195!4d30.0836048?hl=en&entry=ttu&g_ep=EgoyMDI2MDQyMC4wIKXMDSoASAFQAw%3D%3D";
