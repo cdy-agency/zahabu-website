@@ -19,7 +19,7 @@ const services = [
     title: "Life & Health Insurance",
     description:
       "We provide life coverage and health insurance to safeguard individuals and families.",
-    image: "/healthIssuarance.png",
+    image: "/girl.png",
     tag: "Protection",
     number: "02",
   },
@@ -27,7 +27,7 @@ const services = [
     title: "Business & Corporate Insurance",
     description:
       "ZAHABU delivers customized insurance packages tailored to your business needs.",
-    image: "/busii.png",
+    image: "/business.png",
     tag: "Enterprise",
     number: "03",
   },
@@ -35,7 +35,7 @@ const services = [
     title: "Risk Advisory & Consulting",
     description:
       "Expert advice on risk identification, coverage structuring, and risk management strategies.",
-    image: "/riski.png",
+    image: "/risk.png",
     tag: "Advisory",
     number: "04",
   },
@@ -43,7 +43,7 @@ const services = [
     title: "Claims Management Support",
     description:
       "We assist clients in processing and following up on insurance claims smoothly and quickly.",
-    image: "/accident.jpg",
+    image: "/burning1.png",
     tag: "Support",
     number: "05",
   },
@@ -51,7 +51,7 @@ const services = [
     title: "Policy Reviews & Renewals",
     description:
       "Ensuring your policies remain relevant, comprehensive, and cost-effective at all times.",
-    image: "/amategeko.jpg",
+    image: "/policy.png",
     tag: "Renewal",
     number: "06",
   },
@@ -189,7 +189,7 @@ export default function ServicesPage() {
       {/* ── Hero ─────────────────────────────────────────────────────── */}
       <div className="relative overflow-hidden min-h-[440px] flex items-end">
         <Image
-          src="/ourserviceImage.jpg"
+          src="/original.png"
           alt="Our Services background"
           fill
           className="object-cover object-center"

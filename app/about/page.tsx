@@ -3,7 +3,7 @@ import CompanyProfile from "@/components/about/CompanyProfile";
 import MissionVision from "@/components/about/MissionVision";
 import OurTeam from "@/components/about/OurTeam";
 import OurClients from "@/components/about/OurClients";
-import ContactSection from "@/components/about/ContactSection";
+
 
 export default function AboutPage() {
   return (
@@ -13,7 +13,7 @@ export default function AboutPage() {
       <MissionVision />
       <OurTeam />
       <OurClients />
-      <ContactSection />
+      
     </main>
   );
 }
