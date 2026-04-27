@@ -1,8 +1,11 @@
 "use client";
 
 import Link from "next/link";
+import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { BTN_HOVER, BTN_TAP, SPRING_HOVER } from "@/components/motion";
+
+const RECIPIENT_EMAIL = "zahabusolutions@gmail.com";
 
 const MAPS_URL =
   "https://www.google.com/maps/place/1%C2%B057'23.1%22S+30%C2%B005'01.0%22E/@-1.9564195,30.0810299,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-1.9564195!4d30.0836048?hl=en&entry=ttu&g_ep=EgoyMDI2MDQyMC4wIKXMDSoASAFQAw%3D%3D";
@@ -15,6 +18,35 @@ const OFFICE_ADDRESS =
 
 export default function Footer() {
   const reduce = useReducedMotion();
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
+  const [fields, setFields] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFields((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    setError("");
+  };
+
+  const handleSend = () => {
+    if (!fields.name.trim() || !fields.email.trim() || !fields.message.trim()) {
+      setError("Please fill in your name, email, and message.");
+      return;
+    }
+
+    const subject = encodeURIComponent(`Website Enquiry from ${fields.name}`);
+    const body = encodeURIComponent(
+      `Hello ZAHABU Solutions,\n\nName: ${fields.name}\nEmail: ${fields.email}\nPhone: ${fields.phone || "Not provided"}\n\nMessage:\n${fields.message}\n\n---\nSent via zahabusolutions.com contact form`
+    );
+
+    window.location.href = `mailto:${RECIPIENT_EMAIL}?subject=${subject}&body=${body}`;
+
+    setTimeout(() => setSubmitted(true), 500);
+  };
 
   return (
     <footer id="footer" className="w-full min-w-0 max-w-full overflow-x-clip bg-primary">
@@ -27,7 +59,7 @@ export default function Footer() {
             <div className="w-48 h-0.5 bg-accent rounded-full mb-5" />
             <p className="text-white/60 text-sm leading-relaxed max-w-sm">
               If you&apos;re inquiring about a claim, service question, or general concern, please use
-              the form below and we&apos;ll get back to you within 1–2 business days.
+              the form below and we&apos;ll get back to you instantly (24/).
             </p>
           </div>
 
@@ -69,6 +101,10 @@ export default function Footer() {
                   {OFFICE_ADDRESS}
                 </motion.a>
               )}
+
+              {/* ONLY ADDITION */}
+              <p className="text-white/70 text-sm pt-1">Phone Number: +250 788 381 630</p>
+
               <p className="text-white/40 text-xs pt-1">ZAHABU Solutions — Available Mon–Fri, 8am–6pm</p>
             </div>
           </div>
@@ -85,7 +121,6 @@ export default function Footer() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-            {/* Open in Maps pill */}
             <a
               href={MAPS_URL}
               target="_blank"
@@ -102,31 +137,57 @@ export default function Footer() {
 
         {/* Right column — contact form */}
         <div className="flex flex-col gap-4">
-          <FooterInput label="name" type="text" placeholder="Full name" />
-          <FooterInput label="email" type="email" placeholder="Email" />
-          <FooterInput label="phone" type="tel" placeholder="Phone number" />
-          <FooterInput label="message" type="text" placeholder="Type your message" />
+          {submitted ? (
+            <div className="flex flex-col items-center justify-center gap-3 py-16 text-center">
+              <div className="w-14 h-14 rounded-full bg-accent/20 flex items-center justify-center">
+                <svg
+                  className="w-7 h-7 text-accent"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <p className="text-white font-bold text-lg">Message sent!</p>
+              <p className="text-white/50 text-sm">We'll be in touch shortly.</p>
+            </div>
+          ) : (
+            <>
+              <FooterInput label="name" type="text" placeholder="Full name *" value={fields.name} onChange={handleChange} />
+              <FooterInput label="email" type="email" placeholder="Email *" value={fields.email} onChange={handleChange} />
+              <FooterInput label="phone" type="tel" placeholder="Phone number" value={fields.phone} onChange={handleChange} />
+              <FooterInput label="message" type="text" placeholder="Type your message *" value={fields.message} onChange={handleChange} />
 
-          <div className="mt-2">
-            {reduce ? (
-              <button
-                type="button"
-                className="bg-accent text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-accent/80 transition-colors duration-200"
-              >
-                Submit
-              </button>
-            ) : (
-              <motion.button
-                type="button"
-                className="bg-accent text-white text-sm font-bold px-8 py-3 rounded-full"
-                whileHover={BTN_HOVER}
-                whileTap={BTN_TAP}
-                transition={SPRING_HOVER}
-              >
-                Submit
-              </motion.button>
-            )}
-          </div>
+              {error && (
+                <p className="text-red-400 text-xs font-medium -mt-1">{error}</p>
+              )}
+
+              <div className="mt-2">
+                {reduce ? (
+                  <button
+                    type="button"
+                    onClick={handleSend}
+                    className="bg-accent text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-accent/80 transition-colors duration-200"
+                  >
+                    Submit
+                  </button>
+                ) : (
+                  <motion.button
+                    type="button"
+                    onClick={handleSend}
+                    className="bg-accent text-white text-sm font-bold px-8 py-3 rounded-full"
+                    whileHover={BTN_HOVER}
+                    whileTap={BTN_TAP}
+                    transition={SPRING_HOVER}
+                  >
+                    Submit
+                  </motion.button>
+                )}
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -167,10 +228,14 @@ function FooterInput({
   type,
   placeholder,
   label,
+  value,
+  onChange,
 }: {
   type: string;
   placeholder: string;
   label: string;
+  value: string;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }) {
   const reduce = useReducedMotion();
   if (reduce) {
@@ -179,6 +244,8 @@ function FooterInput({
         type={type}
         name={label}
         placeholder={placeholder}
+        value={value}
+        onChange={onChange}
         className="bg-transparent border-b border-white/25 text-white placeholder:text-white/40 text-sm py-3 outline-none focus:border-accent transition-colors duration-200"
       />
     );
@@ -188,6 +255,8 @@ function FooterInput({
       type={type}
       name={label}
       placeholder={placeholder}
+      value={value}
+      onChange={onChange}
       className="bg-transparent border-b border-white/25 text-white placeholder:text-white/40 text-sm py-3 outline-none focus:border-accent"
       whileFocus={{ y: -2, scale: 1.01 }}
       transition={SPRING_HOVER}
