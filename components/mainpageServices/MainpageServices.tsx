@@ -187,9 +187,9 @@ export default function ServicesPage() {
   return (
     <div className="w-full bg-[#F7F7F7]">
       {/* ── Hero ─────────────────────────────────────────────────────── */}
-      <div className="relative overflow-hidden min-h-[440px] flex items-end">
+      <div className="relative overflow-hidden min-h-110 flex items-end">
         <Image
-          src="/original.png"
+          src="/ourservice.jpg"
           alt="Our Services background"
           fill
           className="object-cover object-center"
@@ -218,44 +218,6 @@ export default function ServicesPage() {
             </motion.h1>
             <motion.div variants={fadeUp} className="w-12 h-0.5 bg-accent" />
           </motion.div>
-        </div>
-      </div>
-
-      {/* ── Section intro ─────────────────────────────────────────────── */}
-      <div className="bg-white border-b border-gray-100">
-        <div className="section-padding py-20">
-          <InView className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-10">
-            <div>
-              <motion.p
-                variants={fadeUp}
-                className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3"
-              >
-                What We Offer
-              </motion.p>
-              <motion.h2
-                variants={fadeUp}
-                className="text-primary text-4xl font-bold mb-3"
-              >
-                Our Services
-              </motion.h2>
-              <motion.div variants={fadeUp} className="w-10 h-1 bg-accent" />
-            </div>
-            <motion.p
-              variants={fadeUp}
-              className="text-muted text-sm max-w-md leading-relaxed lg:text-right"
-            >
-              We provide professional insurance solutions designed to protect,
-              support, and grow your life and business in Rwanda.
-            </motion.p>
-          </InView>
-
-          <InView className="flex items-center gap-4 mt-14">
-            <span className="w-1 h-6 bg-accent inline-block" />
-            <p className="text-primary text-xs font-black tracking-[0.35em] uppercase whitespace-nowrap">
-              Our Coverage
-            </p>
-            <div className="flex-1 h-px bg-gray-100" />
-          </InView>
         </div>
       </div>
 
