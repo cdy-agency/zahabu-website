@@ -1,28 +1,29 @@
+import Image from "next/image";
 import { MotionCard, SectionTransition } from "@/components/motion";
 
 const clients = [
   {
-    initial: "U",
-    name: "UB Connect Ltd",
+    logo: "/ubconnect.jpeg",
+    name: "UB CONNECT LTD",
     tagline: "Investment | Construction",
     description:
-      "A flourishing real estate company that has established itself as a leading firm in investment and construction of commercial buildings.",
+      "UB CONNECT Ltd, a flourishing real estate company that has established itself as a leading firm in investment and construction of commercial buildings.",
     accent: false,
   },
   {
-    initial: "C",
-    name: "Cornerstone Station Ltd",
+    logo: "/cornerstone.jpeg",
+    name: "CORNERSTONE STATION Ltd",
     tagline: "Transport & Fuel",
     description:
-      "Positioned to be a leading player in the country and regional transport market, proudly supplying customers with the best transportation network.",
+      "CORNERSTONE STATION Ltd is positioned to be a leading player in the country and regional transport market, proudly supplying customers with the best transportation network.",
     accent: true,
   },
   {
-    initial: "L",
-    name: "Lusa Investment Ltd",
+    logo: "/lusainvestiment.jpeg",
+    name: "LUSA INVESTMENT LTD",
     tagline: "Commercial Markets",
     description:
-      "Deals in the management of commercial markets. Our operational market, KABUGA Market, is located in Masaka Sector in Kicukiro District.",
+      "LUSA INVESTMENT Ltd deals in the management of commercial markets. Our operational market, KABUGA Market, is located in Masaka Sector in Kicukiro District.",
     accent: false,
   },
 ];
@@ -35,7 +36,8 @@ export default function OurClients() {
           Who We Serve
         </p>
         <h2 className="text-primary text-4xl font-bold mb-3">Our Clients</h2>
-        <div className="w-10 h-1 bg-accent rounded-full mx-auto" />
+        <div className="w-10 h-1 bg-accent rounded-full mx-auto mb-3" />
+        <p className="text-muted text-sm">Trusted by leading companies across Rwanda</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -54,26 +56,24 @@ export default function OurClients() {
                 client.accent ? "border-primary/10" : "border-gray-100"
               }`}
             >
-              <div
-                className={`w-14 h-14 rounded-full flex items-center justify-center font-black text-2xl border-2 ${
-                  client.accent
-                    ? "bg-primary/10 border-primary/20 text-primary"
-                    : "bg-accent/10 border-accent/20 text-accent"
-                }`}
-              >
-                {client.initial}
+              {/* Logo image in white rounded square */}
+              <div className="w-16 h-16 rounded-xl bg-white border border-gray-100 shadow-sm flex items-center justify-center shrink-0 overflow-hidden p-1">
+                <Image
+                  src={client.logo}
+                  alt={`${client.name} logo`}
+                  width={56}
+                  height={56}
+                  className="object-contain w-full h-full"
+                />
               </div>
+
               <div>
-                <h3
-                  className={`font-bold text-sm uppercase tracking-wide leading-tight ${
-                    client.accent ? "text-primary" : "text-primary"
-                  }`}
-                >
+                <h3 className="font-bold text-sm uppercase tracking-wide leading-tight text-primary">
                   {client.name}
                 </h3>
                 <p
-                  className={`text-xs tracking-widest uppercase mt-0.5 ${
-                    client.accent ? "text-primary/60" : "text-muted"
+                  className={`text-xs font-bold tracking-widest uppercase mt-1 ${
+                    client.accent ? "text-primary/70" : "text-accent"
                   }`}
                 >
                   {client.tagline}

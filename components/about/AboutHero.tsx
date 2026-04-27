@@ -13,7 +13,7 @@ export default function AboutHero() {
       className="relative flex w-full min-h-[70vh] items-end overflow-hidden"
     >
       <Image
-        src="/nurse.webp"
+        src="/aboutUsimage.jpg"
         alt="About ZAHABU Solutions"
         fill
         priority
@@ -32,9 +32,23 @@ export default function AboutHero() {
               Solutions Ltd.
             </h1>
             <div className="mb-6 h-1 w-14 rounded-full bg-accent" />
+
+            {/* FIRST PARAGRAPH */}
             <p className="text-base text-white/65 max-w-lg leading-relaxed">
               Rwanda&apos;s emerging insurance brokerage firm — built on trust, expertise, and a
               commitment to putting clients first. Established in 2025, headquartered in Kigali.
+            </p>
+
+            {/* NEW LINE WITH SPACE ABOVE */}
+            <p className="mt-4">
+              <a
+                href="https://www.bnr.rw/documents/LIST_OF_LICENSED_INSURANCE_AND_REINSURANCE_BROKERS-April_2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent underline"
+              >
+                We’ve been shortlisted on the BNR list of licensed brokers
+              </a>
             </p>
           </div>
         ) : (
@@ -56,6 +70,7 @@ export default function AboutHero() {
             >
               Who We Are
             </motion.p>
+
             <motion.h1
               className="text-5xl font-bold leading-tight text-white md:text-6xl mb-4"
               variants={{
@@ -67,6 +82,7 @@ export default function AboutHero() {
               <br />
               Solutions Ltd.
             </motion.h1>
+
             <motion.div
               className="mb-6 h-1 w-14 origin-left rounded-full bg-accent"
               variants={{
@@ -74,6 +90,8 @@ export default function AboutHero() {
                 show: { opacity: 1, scaleX: 1, transition: { duration: 0.4, ease: EASE } },
               }}
             />
+
+            {/* FIRST PARAGRAPH */}
             <motion.p
               className="text-base text-white/65 max-w-lg leading-relaxed"
               variants={{
@@ -83,6 +101,24 @@ export default function AboutHero() {
             >
               Rwanda&apos;s emerging insurance brokerage firm — built on trust, expertise, and a
               commitment to putting clients first. Established in 2025, headquartered in Kigali.
+            </motion.p>
+
+            {/* SECOND LINE WITH SPACE */}
+            <motion.p
+              className="mt-4"
+              variants={{
+                hidden: { opacity: 0, y: 8 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
+              }}
+            >
+              <a
+                href="https://www.bnr.rw/documents/LIST_OF_LICENSED_INSURANCE_AND_REINSURANCE_BROKERS-April_2026.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-accent underline"
+              >
+                We’ve been shortlisted on the BNR list of licensed brokers
+              </a>
             </motion.p>
           </motion.div>
         )}

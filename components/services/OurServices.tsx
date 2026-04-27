@@ -7,16 +7,18 @@ const services = [
     title: "General Insurance",
     description:
       "We offer protection for motor vehicles, properties, liabilities, and travel-related risks.",
-    image: "/vehicle.png",
+    image: "/vehilcesAssurance.png",
     accent: false,
+    objectPosition: "center center",
   },
   {
     number: "02",
     title: "Life & Health Insurance",
     description:
       "We provide life coverage and health insurance to safeguard individuals and families.",
-    image: "/life.png",
+    image: "/girl.png",
     accent: true,
+    objectPosition: "center top",
   },
   {
     number: "03",
@@ -25,6 +27,7 @@ const services = [
       "ZAHABU delivers customized insurance packages tailored to your business needs.",
     image: "/business.png",
     accent: false,
+    objectPosition: "center center",
   },
   {
     number: "04",
@@ -33,14 +36,16 @@ const services = [
       "Expert advice on risk identification, coverage structuring, and risk management strategies.",
     image: "/risk.png",
     accent: false,
+    objectPosition: "center center",
   },
   {
     number: "05",
     title: "Claims Management Support",
     description:
       "We assist clients in processing and following up on insurance claims smoothly and quickly.",
-    image: "/claims.png",
+    image: "/burning1.png",
     accent: true,
+    objectPosition: "center center",
   },
   {
     number: "06",
@@ -49,6 +54,7 @@ const services = [
       "Ensuring your policies remain relevant, comprehensive, and cost-effective at all times.",
     image: "/policy.png",
     accent: false,
+    objectPosition: "center center",
   },
 ];
 
@@ -87,6 +93,7 @@ export default function OurServices() {
                 fill
                 sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
+                style={{ objectPosition: service.objectPosition }}
               />
               <div
                 className={`absolute inset-0 bg-gradient-to-t ${

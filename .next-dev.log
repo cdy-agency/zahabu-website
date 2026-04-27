@@ -1,0 +1,80 @@
+
+> my-app@0.1.0 dev
+> next dev
+
+▲ Next.js 16.2.4 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.1.66:3000
+✓ Ready in 6.6s
+⚠ Slow filesystem detected. The benchmark took 1307ms. If E:\project\zahabu-website\zahabu-website\.next/dev is a network drive, consider moving it to a local folder.
+See more: https://nextjs.org/docs/app/guides/local-development
+
+○ Compiling / ...
+ HEAD / 200 in 349ms (next.js: 30ms, application-code: 319ms)
+ GET / 200 in 176ms (next.js: 3ms, application-code: 173ms)
+ GET / 200 in 663ms (next.js: 9ms, application-code: 654ms)
+ GET / 200 in 186ms (next.js: 4ms, application-code: 183ms)
+ GET / 200 in 464ms (next.js: 62ms, application-code: 403ms)
+ GET / 200 in 749ms (next.js: 10ms, application-code: 739ms)
+[browser] Image with src "/Britam.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/radiant.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/bk.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/oldmatual.jpg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "http://localhost:3000/MAYFAIR.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "http://localhost:3000/MUA.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "http://localhost:3000/Prime.svg" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/edencare.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[browser] Image with src "/sonarwa.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+ GET /contact 200 in 730ms (next.js: 639ms, application-code: 91ms)
+ GET /contact 200 in 156ms (next.js: 19ms, application-code: 137ms)
+ GET /about/team 200 in 815ms (next.js: 642ms, application-code: 173ms)
+[browser] Image with src "/Zahabu3.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/Zahabu2.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/Zahabu4.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/Zahabu1.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /about/background 200 in 900ms (next.js: 676ms, application-code: 224ms)
+[browser] Image with src "/nurse.webp" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+[browser] Image with src "/mission.jpg" has "fill" but is missing "sizes" prop. Please add it to improve page performance. Read more: https://nextjs.org/docs/api-reference/next/image#sizes
+ GET /contact 200 in 83ms (next.js: 21ms, application-code: 62ms)
+ GET /about/background 200 in 232ms (next.js: 100ms, application-code: 132ms)
+ GET /about/team 200 in 123ms (next.js: 26ms, application-code: 97ms)
+ GET /about/background 200 in 89ms (next.js: 14ms, application-code: 75ms)
+✓ Compiled in 16.7s
+ GET /contact 200 in 17.8s (next.js: 17.4s, application-code: 396ms)
+ GET /contact 200 in 659ms (next.js: 226ms, application-code: 433ms)
+ GET /contact 200 in 94ms (next.js: 16ms, application-code: 79ms)
+✓ Compiled in 57.2s
+ GET /contact 200 in 57s (next.js: 56s, application-code: 1122ms)
+ GET /contact 200 in 844ms (next.js: 362ms, application-code: 482ms)
+ GET /contact 200 in 149ms (next.js: 21ms, application-code: 129ms)
+ GET /contact 200 in 148ms (next.js: 96ms, application-code: 52ms)
+ GET /about/team 200 in 573ms (next.js: 406ms, application-code: 167ms)
+ GET /contact 200 in 35ms (next.js: 4ms, application-code: 31ms)
+✓ Compiled in 800ms
+ GET /contact 200 in 1201ms (next.js: 835ms, application-code: 366ms)
+ GET /contact 200 in 196ms (next.js: 5ms, application-code: 191ms)
+ GET /contact 200 in 106ms (next.js: 8ms, application-code: 98ms)
+ GET /contact 200 in 1200ms (next.js: 7ms, application-code: 1192ms)
+ GET /contact 200 in 20ms (next.js: 7ms, application-code: 13ms)
+ GET /contact 200 in 110ms (next.js: 6ms, application-code: 104ms)
+ GET /contact 200 in 14ms (next.js: 4ms, application-code: 10ms)
+ GET /contact 200 in 31ms (next.js: 5ms, application-code: 25ms)
+ GET /contact 200 in 17ms (next.js: 4ms, application-code: 12ms)
+ GET /contact 200 in 35ms (next.js: 6ms, application-code: 29ms)
+ GET /contact 200 in 73ms (next.js: 5ms, application-code: 69ms)
+ GET /contact 200 in 177ms (next.js: 12ms, application-code: 164ms)
+✓ Compiled in 158ms
+ GET /contact 200 in 244ms (next.js: 167ms, application-code: 78ms)
+✓ Compiled in 164ms
+ GET /contact 200 in 205ms (next.js: 153ms, application-code: 52ms)
+✓ Compiled in 127ms
+ GET /contact 200 in 255ms (next.js: 192ms, application-code: 62ms)
+✓ Compiled in 774ms
+ GET /contact 200 in 521ms (next.js: 233ms, application-code: 288ms)
+ GET /contact 200 in 222ms (next.js: 57ms, application-code: 165ms)
+ GET /contact 200 in 98ms (next.js: 5ms, application-code: 94ms)
+✓ Compiled in 202ms
+ GET /contact 200 in 271ms (next.js: 154ms, application-code: 117ms)
+✓ Compiled in 126ms
+ GET /contact 200 in 284ms (next.js: 193ms, application-code: 91ms)
+^C
