@@ -1,5 +1,4 @@
 import HeroSection from "@/components/HeroSection";
-import ServicesSection from "@/components/ServicesSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import PartnersStrip from "@/components/PartnersStrip";
 
@@ -15,7 +14,6 @@ export default function Home() {
       <OurServices/>
       <InsuranceClasses/>
       <SectorsWeServe/>
-      {/* <ServicesSection /> */}
       <WhyChooseUs />
       
     </main>

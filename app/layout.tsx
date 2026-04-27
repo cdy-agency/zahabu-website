@@ -6,6 +6,11 @@ import Navbar from "@/components/Navbar";
 export const metadata: Metadata = {
   title: "ZAHABU | Solutions Ltd",
   description: "The Trusted Source For Independent Auto Appraisal",
+  icons: {
+    icon: "/zahabu.png",
+    shortcut: "/zahabu.png",
+    apple: "/zahabu.png",
+  },
 };
 
 export default function RootLayout({
@@ -14,7 +19,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full min-w-0 max-w-full overflow-x-clip antialiased">
+    <html
+      lang="en"
+      className="h-full min-w-0 max-w-full overflow-x-clip antialiased"
+    >
       <body
         className="relative flex min-h-full min-w-0 max-w-full flex-col overflow-x-clip"
         style={{ fontFamily: "'Chillax', sans-serif" }}
