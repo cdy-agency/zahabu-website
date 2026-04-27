@@ -13,17 +13,12 @@ const MAPS_EMBED_URL =
 
 const OFFICE_ADDRESS = "KIGALI - KG 2 AVE - GATE NUMBER 33.";
 
-const BUSINESS_HOURS = [
-  { day: "Monday – Friday", hours: "8:00 am – 6:00 pm" },
-  { day: "Saturday", hours: "9:00 am – 4:00 pm" },
-  { day: "Sunday", hours: "Closed" },
-];
-
 const inputBase =
   "w-full bg-white border border-gray-200 rounded-lg px-4 py-3 text-primary placeholder:text-muted/50 text-sm outline-none focus:border-accent focus:ring-1 focus:ring-accent/20 transition-colors duration-200";
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState("");
   const [fields, setFields] = useState({
     name: "",
@@ -39,23 +34,47 @@ export default function ContactPage() {
     setError("");
   };
 
-  const handleSend = () => {
-    // Validate required fields
+  const handleSend = async () => {
     if (!fields.name.trim() || !fields.email.trim() || !fields.message.trim()) {
       setError("Please fill in your name, email, and message before sending.");
       return;
     }
 
     // Build the mailto link — everything pre-filled for the user
-    const subject = encodeURIComponent(`Website Enquiry from ${fields.name}`);
-    const body = encodeURIComponent(
-      `Hello ZAHABU Solutions,\n\nName: ${fields.name}\nEmail: ${fields.email}\nPhone: ${fields.phone || "Not provided"}\n\nMessage:\n${fields.message}\n\n---\nSent via zahabusolutions.com contact form`,
-    );
+    setIsSending(true);
+    setError("");
 
-    window.location.href = `mailto:${RECIPIENT_EMAIL}?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...fields,
+          source: "Contact Page",
+        }),
+      });
 
-    // Show success screen shortly after
-    setTimeout(() => setSubmitted(true), 500);
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        setError(data.error || "Failed to send your message.");
+        return;
+      }
+
+      setSubmitted(true);
+      setFields({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch {
+      setError("Failed to send your message.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -183,9 +202,10 @@ export default function ContactPage() {
               <button
                 type="button"
                 onClick={handleSend}
+                disabled={isSending}
                 className="group self-start inline-flex items-center gap-2 rounded-full px-8 py-3 text-sm font-bold bg-accent text-white hover:bg-accent/85 transition-all duration-200"
               >
-                Send Message
+                {isSending ? "Sending..." : "Send Message"}
                 <svg
                   className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1"
                   fill="none"
