@@ -17,7 +17,7 @@ export default function CompanyProfile() {
         </h2>
         <div className="w-10 h-1 bg-accent rounded-full mb-5" />
         <p className="text-muted text-sm max-w-xl leading-relaxed">
-          An Insurance Brokerage Firm in Rwanda, established in 2025. We
+          An Insurance Brokerage Firm in Rwanda, established in 2025 <br />  With <span className="font-bold underline">License Code: B01/2026</span> . We
           collaborate with organizations and individuals by making insurance
           simple, reliable, and effective.
         </p>

@@ -7,9 +7,9 @@ export const metadata: Metadata = {
   title: "ZAHABU | Solutions Ltd",
   description: "The Trusted Source For Independent Auto Appraisal",
   icons: {
-    icon: "/zahabu.png",
-    shortcut: "/zahabu.png",
-    apple: "/zahabu.png",
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
   },
 };
 
