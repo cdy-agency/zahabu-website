@@ -5,8 +5,6 @@ import { useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { BTN_HOVER, BTN_TAP, SPRING_HOVER } from "@/components/motion";
 
-const RECIPIENT_EMAIL = "zahabusolutions@gmail.com";
-
 const MAPS_URL =
   "https://www.google.com/maps/place/1%C2%B057'23.1%22S+30%C2%B005'01.0%22E/@-1.9564195,30.0810299,17z/data=!3m1!4b1!4m4!3m3!8m2!3d-1.9564195!4d30.0836048?hl=en&entry=ttu&g_ep=EgoyMDI2MDQyMC4wIKXMDSoASAFQAw%3D%3D";
 
@@ -14,11 +12,12 @@ const MAPS_EMBED_URL =
   "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3987.516!2d30.0810299!3d-1.9564195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMcKwNTcnMjMuMSJTIDMwwrAwNScwMS4wIkU!5e0!3m2!1sen!2srw!4v1700000000000!5m2!1sen!2srw";
 
 const OFFICE_ADDRESS =
-  "KIGALI - GASABO - KIMIHURURA - MAJYAMBERE - KG 2 AVE - GATE NUMBER 33.";
+  "KIGALI - KG 2 AVE - GATE NUMBER 33.";
 
 export default function Footer() {
   const reduce = useReducedMotion();
   const [submitted, setSubmitted] = useState(false);
+  const [isSending, setIsSending] = useState(false);
   const [error, setError] = useState("");
   const [fields, setFields] = useState({
     name: "",
@@ -32,20 +31,46 @@ export default function Footer() {
     setError("");
   };
 
-  const handleSend = () => {
+  const handleSend = async () => {
     if (!fields.name.trim() || !fields.email.trim() || !fields.message.trim()) {
       setError("Please fill in your name, email, and message.");
       return;
     }
 
-    const subject = encodeURIComponent(`Website Enquiry from ${fields.name}`);
-    const body = encodeURIComponent(
-      `Hello ZAHABU Solutions,\n\nName: ${fields.name}\nEmail: ${fields.email}\nPhone: ${fields.phone || "Not provided"}\n\nMessage:\n${fields.message}\n\n---\nSent via zahabusolutions.com contact form`
-    );
+    setIsSending(true);
+    setError("");
 
-    window.location.href = `mailto:${RECIPIENT_EMAIL}?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...fields,
+          source: "Footer",
+        }),
+      });
 
-    setTimeout(() => setSubmitted(true), 500);
+      const data = (await response.json()) as { error?: string };
+
+      if (!response.ok) {
+        setError(data.error || "Failed to send your message.");
+        return;
+      }
+
+      setSubmitted(true);
+      setFields({
+        name: "",
+        email: "",
+        phone: "",
+        message: "",
+      });
+    } catch {
+      setError("Failed to send your message.");
+    } finally {
+      setIsSending(false);
+    }
   };
 
   return (
@@ -169,20 +194,22 @@ export default function Footer() {
                   <button
                     type="button"
                     onClick={handleSend}
+                    disabled={isSending}
                     className="bg-accent text-white text-sm font-bold px-8 py-3 rounded-full hover:bg-accent/80 transition-colors duration-200"
                   >
-                    Submit
+                    {isSending ? "Sending..." : "Submit"}
                   </button>
                 ) : (
                   <motion.button
                     type="button"
                     onClick={handleSend}
+                    disabled={isSending}
                     className="bg-accent text-white text-sm font-bold px-8 py-3 rounded-full"
                     whileHover={BTN_HOVER}
                     whileTap={BTN_TAP}
                     transition={SPRING_HOVER}
                   >
-                    Submit
+                    {isSending ? "Sending..." : "Submit"}
                   </motion.button>
                 )}
               </div>

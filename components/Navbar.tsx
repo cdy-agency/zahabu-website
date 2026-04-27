@@ -48,7 +48,7 @@ const aboutDropdownItems = [
   {
     href: "/about/background",
     label: "About Us",
-    description: "Our history & journey",
+    description: "Our journey",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -66,7 +66,7 @@ const aboutDropdownItems = [
   },
   {
     href: "/about/team",
-    label: "Team Members",
+    label: "Our team",
     description: "Meet the people behind us",
     icon: (
       <svg
