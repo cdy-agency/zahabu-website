@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
+import Link from "next/link";
 
 const values = [
   {
@@ -87,7 +88,7 @@ const cardVariants: Variants = {
 
 export default function WhatWeBelieve() {
   return (
-    <div className="mb-20 mt-20 px-4 sm:px-8 lg:px-16 xl:px-24 max-w-screen-xl mx-auto">
+    <div className="mb-20 mt-20 px-4 sm:px-8 lg:px-16 xl:px-24 max-w-7xl mx-auto">
 
       {/* Header */}
       <div className="text-center mb-12">
@@ -105,7 +106,8 @@ export default function WhatWeBelieve() {
       </div>
 
       {/* Row 1 — 3 cards */}
-      <motion.div
+      <Link href="/services" className="text-sm font-bold text-primary mb-6 inline-block">
+       <motion.div
         className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-4"
         variants={containerVariants}
         initial="hidden"
@@ -125,12 +127,13 @@ export default function WhatWeBelieve() {
             <p className="text-primary text-[11px] font-bold tracking-widest uppercase leading-tight">
               {value.label}
             </p>
-            <p className="text-primary/50 text-xs leading-relaxed max-w-[160px]">
+            <p className="text-primary/50 text-xs leading-relaxed max-w-40">
               {value.description}
             </p>
           </motion.div>
         ))}
       </motion.div>
+      </Link>
 
       {/* Row 2 — 3 cards */}
       <motion.div
@@ -153,7 +156,7 @@ export default function WhatWeBelieve() {
             <p className="text-primary text-[11px] font-bold tracking-widest uppercase leading-tight">
               {value.label}
             </p>
-            <p className="text-primary/50 text-xs leading-relaxed max-w-[160px]">
+            <p className="text-primary/50 text-xs leading-relaxed max-w-40">
               {value.description}
             </p>
           </motion.div>

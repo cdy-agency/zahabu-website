@@ -1,17 +1,12 @@
-import { MotionCard, SectionTransition } from "@/components/motion";
-
-const facts = [
-  { label: "Established", value: "EST. 2025" },
-  { label: "Headquarters", value: "Kigali, Rwanda" },
-  { label: "Business Type", value: "Insurance Brokerage Firm" },
-  { label: "Industry", value: "Financial Services – Insurance" },
-  { label: "Regulator", value: "Currently seeking licensing with the National Bank of Rwanda (BNR)" },
-  { label: "Coverage", value: "General, Life & Health, and Corporate Insurance Solutions" },
-];
+import Link from "next/link";
+import { SectionTransition } from "@/components/motion";
 
 export default function CompanyProfile() {
   return (
-    <SectionTransition id="about" className="bg-[#F7F7F7] section-padding py-24">
+    <SectionTransition
+      id="about"
+      className="bg-[#F7F7F7] section-padding py-24"
+    >
       {/* Top header */}
       <div className="mb-12">
         <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
@@ -26,48 +21,55 @@ export default function CompanyProfile() {
           collaborate with organizations and individuals by making insurance
           simple, reliable, and effective.
         </p>
+
+        {/* BNR Licensed Broker Banner */}
+        <Link
+          href="https://www.bnr.rw/documents/LIST_OF_LICENSED_INSURANCE_AND_REINSURANCE_BROKERS-April_2026.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex items-center gap-4 rounded-xl border border-[#D1D5DB] bg-white p-4 no-underline transition-all duration-200 hover:border-[#1D9E75] hover:shadow-sm mt-6 max-w-xl"
+        >
+          {/* Shield icon */}
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#E1F5EE]">
+            <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+              <path
+                d="M11 2L3 6v5c0 4.4 3.4 8.5 8 9.5 4.6-1 8-5.1 8-9.5V6L11 2z"
+                fill="#1D9E75"
+                fillOpacity="0.2"
+              />
+              <path
+                d="M11 2L3 6v5c0 4.4 3.4 8.5 8 9.5 4.6-1 8-5.1 8-9.5V6L11 2z"
+                stroke="#0F6E56"
+                strokeWidth="1.5"
+                strokeLinejoin="round"
+              />
+              <path
+                d="M7.5 11l2.5 2.5L15 9"
+                stroke="#0F6E56"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+
+          {/* Text */}
+          <div className="flex-1">
+            <p className="text-sm font-semibold text-primary m-0 leading-tight">
+              BNR Licensed Insurance Broker
+            </p>
+            <p className="text-xs text-muted m-0 mt-0.5 leading-relaxed">
+              Shortlisted on the National Bank of Rwanda official broker
+              registry · April 2026
+            </p>
+          </div>
+
+          {/* Arrow */}
+          <span className="text-muted text-base transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+            ↗
+          </span>
+        </Link>
       </div>
-
-      {/* Logo banner — no circle */}
-      {/* <div className="flex items-center gap-5 bg-white border border-gray-100 rounded-xl px-7 py-5 mb-8 shadow-sm w-full max-w-lg">
-        <div>
-          <p className="text-primary font-bold text-base leading-snug">
-            ZAHABU Solutions Ltd.
-          </p>
-          <p className="text-muted text-xs tracking-wide mt-0.5">
-            Insurance Brokerage Services in Rwanda
-          </p>
-        </div>
-      </div> */}
-
-      {/* Facts grid */}
-      {/* <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {facts.map((fact, i) => (
-          <MotionCard
-            key={i}
-            className={`rounded-xl px-5 py-4 flex flex-col gap-1 ${
-              i === 0
-                ? "bg-accent"
-                : "bg-white border border-gray-100 shadow-sm"
-            }`}
-          >
-            <p
-              className={`text-[10px] font-black tracking-[0.3em] uppercase ${
-                i === 0 ? "text-primary/60" : "text-muted"
-              }`}
-            >
-              {fact.label}
-            </p>
-            <p
-              className={`text-sm font-bold leading-snug ${
-                i === 0 ? "text-primary" : "text-primary"
-              }`}
-            >
-              {fact.value}
-            </p>
-          </MotionCard>
-        ))}
-      </div> */}
     </SectionTransition>
   );
 }

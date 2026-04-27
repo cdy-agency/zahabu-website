@@ -10,6 +10,7 @@ import {
   SectionTransition,
   SPRING_HOVER,
 } from "@/components/motion";
+import Link from "next/link";
 
 function HeroCTAs() {
   const reduce = useReducedMotion();
@@ -17,27 +18,18 @@ function HeroCTAs() {
   const outline =
     "inline-flex items-center justify-center border-2 border-white text-white font-bold px-8 py-3 rounded-sm uppercase tracking-widest text-sm";
 
-  const handleContactClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    const footer = document.getElementById("footer");
-    if (footer) {
-      e.preventDefault();
-      footer.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   if (reduce) {
     return (
       <div className="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#services" className={primary + " hover:opacity-90 transition-opacity duration-200"}>
+        <Link href="/services" className={primary + " hover:opacity-90 transition-opacity duration-200"}>
           Our Services
-        </a>
-        <a
-          href="#footer"
-          onClick={handleContactClick}
-          className={outline + " hover:bg-white hover:text-primary transition-all duration-200"}
+        </Link>
+        <Link
+          href="/contact"
+          className={outline + " hover:text-primary transition-all duration-200"}
         >
           Contact Us
-        </a>
+        </Link>
       </div>
     );
   }
@@ -53,21 +45,20 @@ function HeroCTAs() {
       >
         Our Services
       </motion.a>
-      <motion.a
-        href="#footer"
-        onClick={handleContactClick}
-        className={outline}
+      <motion.div
+        className="inline-flex"
         whileHover={{
           ...BTN_HOVER,
-          backgroundColor: "white",
           color: "var(--color-primary, #0f3356)",
           boxShadow: "0 12px 28px -10px rgba(255,255,255,0.25)",
         }}
         whileTap={BTN_TAP}
         transition={SPRING_HOVER}
       >
-        Contact Us
-      </motion.a>
+        <Link href="/contact" className={outline}>
+          Contact Us
+        </Link>
+      </motion.div>
     </div>
   );
 }

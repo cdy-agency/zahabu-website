@@ -1,12 +1,11 @@
-import Image from "next/image";
 import { MotionCard, SectionTransition } from "@/components/motion";
 
 const coreValues = [
-  { label: "Integrity", accent: false },
-  { label: "Professionalism", accent: false },
+  { label: "Integrity" },
+  { label: "Professionalism" },
   { label: "Customer-Centricity", accent: true },
   { label: "Innovation", accent: true },
-  { label: "Transparency", accent: false },
+  { label: "Transparency" },
 ];
 
 const beliefs = [
@@ -14,141 +13,209 @@ const beliefs = [
     title: "Integrity",
     description:
       "We uphold the highest standards of honesty and ethical conduct in every interaction with clients and insurers.",
+    number: "01",
   },
   {
     title: "Innovation",
     description:
       "We continuously seek smarter, more effective ways to structure and deliver insurance solutions.",
+    number: "02",
   },
   {
     title: "Transparency",
     description:
       "We ensure our clients always understand their coverage, terms, and options — no hidden conditions.",
+    number: "03",
   },
   {
     title: "Professionalism",
     description:
       "Our team brings deep industry expertise to every engagement, delivering structured and reliable service.",
+    number: "04",
   },
   {
     title: "Customer-Centered",
     description:
       "Every solution we design is built around the unique needs and goals of our clients.",
+    number: "05",
   },
 ];
 
 export default function MissionVision() {
   return (
     <>
-      <SectionTransition className="bg-[#F7F7F7] w-full min-h-150 flex flex-col lg:flex-row overflow-hidden">
-        {/* Left — Image */}
-        <div className="relative lg:w-[48%] min-h-100 lg:min-h-full bg-[#F7F7F7] p-8 lg:p-12">
-          <div
-            className="relative w-full h-full min-h-87.5 overflow-hidden"
-            style={{
-              clipPath: "polygon(0% 0%, 94% 0%, 100% 100%, 0% 100%)",
-            }}
-          >
-            <Image
-              src="/mission.jpg"
-              alt="Our Mission and Vision"
-              fill
-              className="object-cover object-center"
-            />
-            <div className="absolute inset-0 bg-primary opacity-20" />
-          </div>
-        </div>
-
-        {/* Right — Content */}
-        <div className="flex-1 bg-[#F7F7F7] section-padding py-20 flex flex-col justify-center">
+      {/* ── Our Foundation ─────────────────────────────────────────── */}
+      <SectionTransition
+        id="mission"
+        className="bg-[#F7F7F7] section-padding py-24"
+      >
+        {/* Header — same pattern as CompanyProfile */}
+        <div className="mb-16">
           <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
             Our Foundation
           </p>
-          <h2 className="text-primary text-4xl font-bold leading-tight mb-2">
-            Our Mission, Vision
-            <br />& Values
+          <h2 className="text-primary text-4xl font-bold mb-3">
+            Mission, Vision & Values
           </h2>
-          <div className="w-10 h-1 bg-accent rounded-full mb-10" />
+          <div className="w-10 h-1 bg-accent rounded-full mb-5" />
+          <p className="text-muted text-sm max-w-xl leading-relaxed">
+            Everything we do is guided by a clear purpose — to make insurance
+            accessible, transparent, and built around the people we serve.
+          </p>
+        </div>
 
-          <div className="flex flex-col gap-8">
-            {/* Mission */}
+        {/* Mission + Vision side by side */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          {/* Mission */}
+          <div className="bg-white rounded-2xl p-8 flex flex-col gap-6 border border-gray-100 group hover:border-accent/30 transition-colors duration-300">
+            <div className="flex items-center justify-between">
+              <span className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <path
+                    d="M10 2L12.5 7.5H18L13.5 11L15.5 17L10 13.5L4.5 17L6.5 11L2 7.5H7.5L10 2Z"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                    strokeLinejoin="round"
+                    className="text-accent"
+                  />
+                </svg>
+              </span>
+              <span className="text-accent text-xs font-black tracking-[0.3em] uppercase">
+                01
+              </span>
+            </div>
             <div>
-              <h3 className="text-primary font-bold text-base mb-2 flex items-center gap-2">
-                <span className="w-1 h-5 bg-accent rounded-full inline-block" />
-                Mission
-              </h3>
-              <p className="text-muted text-sm leading-relaxed pl-4">
+              <h3 className="text-primary font-bold text-xl mb-3">Mission</h3>
+              <p className="text-muted text-sm leading-relaxed">
                 To simplify insurance access by delivering expert guidance,
-                tailored coverage, and customer-first service.
+                tailored coverage, and customer-first service to individuals and
+                organizations across Rwanda.
               </p>
             </div>
+          </div>
 
-            {/* Vision */}
+          {/* Vision */}
+          <div className="bg-primary rounded-2xl p-8 flex flex-col gap-6 group">
+            <div className="flex items-center justify-between">
+              <span className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                  <circle
+                    cx="10"
+                    cy="10"
+                    r="3"
+                    stroke="white"
+                    strokeWidth="1.5"
+                  />
+                  <path
+                    d="M10 2C10 2 4 6 4 10C4 14 10 18 10 18C10 18 16 14 16 10C16 6 10 2 10 2Z"
+                    stroke="white"
+                    strokeWidth="1.5"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
+              <span className="text-accent text-xs font-black tracking-[0.3em] uppercase">
+                02
+              </span>
+            </div>
             <div>
-              <h3 className="text-primary font-bold text-base mb-2 flex items-center gap-2">
-                <span className="w-1 h-5 bg-accent rounded-full inline-block" />
-                Vision
-              </h3>
-              <p className="text-muted text-sm leading-relaxed pl-4">
-                To be Rwanda&apos;s most trusted and innovative insurance brokerage
-                firm.
+              <h3 className="text-white font-bold text-xl mb-3">Vision</h3>
+              <p className="text-white/60 text-sm leading-relaxed">
+                To be Rwanda&apos;s most trusted and innovative insurance
+                brokerage firm — setting the standard for excellence, integrity,
+                and customer care in the industry.
               </p>
             </div>
+          </div>
+        </div>
 
-            {/* Core Values */}
-            <div>
-              <h3 className="text-primary font-bold text-base mb-4 flex items-center gap-2">
-                <span className="w-1 h-5 bg-accent rounded-full inline-block" />
+        {/* Core Values — full-width row */}
+        <div className="bg-white rounded-2xl p-8 border border-gray-100">
+          <div className="flex flex-col sm:flex-row sm:items-start gap-8">
+            <div className="sm:min-w-[200px]">
+              <span className="text-accent text-xs font-black tracking-[0.3em] uppercase block mb-2">
+                03
+              </span>
+              <h3 className="text-primary font-bold text-xl mb-2">
                 Core Values
               </h3>
-              <div className="flex flex-wrap gap-2 pl-4">
-                {coreValues.map((v, i) => (
-                  <span
-                    key={i}
-                    className={`relative px-5 py-2.5 text-xs font-bold tracking-widest uppercase rounded-sm ${
-                      v.accent
-                        ? "bg-accent text-primary"
-                        : "bg-white border border-gray-200 text-primary"
-                    }`}
-                  >
-                    <span className="absolute -top-px left-1/2 -translate-x-1/2 w-6 h-0.5 bg-primary/20 rounded-full" />
-                    {v.label}
-                  </span>
-                ))}
-              </div>
+              <p className="text-muted text-xs leading-relaxed">
+                The principles that shape how we work and who we are.
+              </p>
+            </div>
+
+            <div className="hidden sm:block w-px self-stretch bg-gray-100" />
+
+            <div className="flex flex-wrap gap-2 flex-1 items-center">
+              {coreValues.map((v, i) => (
+                <span
+                  key={i}
+                  className={`px-5 py-2.5 text-xs font-bold tracking-[0.12em] uppercase rounded-full border transition-all duration-200 ${
+                    v.accent
+                      ? "bg-accent text-white border-accent"
+                      : "bg-transparent text-primary border-gray-200 hover:border-accent hover:text-accent"
+                  }`}
+                >
+                  {v.label}
+                </span>
+              ))}
             </div>
           </div>
         </div>
       </SectionTransition>
 
-      <SectionTransition className="bg-white section-padding py-24">
-        <div className="text-center mb-14">
-          <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
-            What We Believe
-          </p>
-          <h2 className="text-primary text-4xl font-bold mb-3">Our Beliefs</h2>
-          <div className="w-10 h-1 bg-accent rounded-full mx-auto mb-5" />
-          <p className="text-muted text-sm max-w-lg mx-auto leading-relaxed">
-            We are committed to providing innovative, reliable, and personalized
-            insurance solutions to individuals and organizations across Rwanda.
-          </p>
+      {/* ── What We Believe ───────────────────────────────────────────── */}
+      <SectionTransition className="bg-primary overflow-hidden relative">
+        {/* Ghost watermark */}
+        <div
+          className="absolute top-0 right-0 text-white opacity-[0.03] font-black select-none pointer-events-none leading-none"
+          style={{ fontSize: "clamp(8rem, 20vw, 18rem)" }}
+          aria-hidden
+        >
+          TRUST
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {beliefs.map((belief, i) => (
-            <MotionCard
-              key={i}
-              className="bg-[#F7F7F7] rounded-xl border border-gray-100 p-7 flex flex-col gap-3"
-            >
-              <h3 className="text-primary font-bold text-sm uppercase tracking-widest flex items-center gap-2">
-                <span className="w-1 h-5 bg-accent rounded-full inline-block" />
-                {belief.title}
-              </h3>
-              <p className="text-muted text-sm leading-relaxed pl-4">
-                {belief.description}
+        <div className="section-padding py-24 relative z-10">
+          {/* Header */}
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8 mb-16">
+            <div>
+              <p className="text-accent text-xs font-black tracking-[0.4em] uppercase mb-3">
+                What We Believe
               </p>
-            </MotionCard>
-          ))}
+              <h2 className="text-white text-4xl font-bold mb-3">
+                Our Beliefs
+              </h2>
+              <div className="w-10 h-1 bg-accent rounded-full" />
+            </div>
+            <p className="text-white/50 text-sm max-w-xs leading-relaxed lg:text-right">
+              Committed to innovative, reliable, and personalized insurance
+              solutions across Rwanda.
+            </p>
+          </div>
+
+          {/* Belief rows */}
+          <div className="flex flex-col">
+            {beliefs.map((belief, i) => (
+              <MotionCard
+                key={i}
+                className="group border-t border-white/10 py-7 flex flex-col sm:flex-row sm:items-center gap-6 cursor-default hover:border-accent/40 transition-colors duration-300"
+              >
+                <span className="text-accent text-xs font-black tracking-[0.3em] uppercase min-w-[3.5rem]">
+                  {belief.number}
+                </span>
+                <h3 className="text-white font-bold text-base tracking-tight min-w-[160px] group-hover:text-accent transition-colors duration-200">
+                  {belief.title}
+                </h3>
+                <p className="text-white/50 text-sm leading-relaxed flex-1 max-w-lg group-hover:text-white/70 transition-colors duration-200">
+                  {belief.description}
+                </p>
+                <span className="text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-base self-center">
+                  →
+                </span>
+              </MotionCard>
+            ))}
+            <div className="border-t border-white/10" />
+          </div>
         </div>
       </SectionTransition>
     </>

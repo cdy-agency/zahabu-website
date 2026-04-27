@@ -38,18 +38,6 @@ export default function AboutHero() {
               Rwanda&apos;s emerging insurance brokerage firm — built on trust, expertise, and a
               commitment to putting clients first. Established in 2025, headquartered in Kigali.
             </p>
-
-            {/* NEW LINE WITH SPACE ABOVE */}
-            <p className="mt-4">
-              <a
-                href="https://www.bnr.rw/documents/LIST_OF_LICENSED_INSURANCE_AND_REINSURANCE_BROKERS-April_2026.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent underline"
-              >
-                We’ve been shortlisted on the BNR list of licensed brokers
-              </a>
-            </p>
           </div>
         ) : (
           <motion.div
@@ -101,24 +89,6 @@ export default function AboutHero() {
             >
               Rwanda&apos;s emerging insurance brokerage firm — built on trust, expertise, and a
               commitment to putting clients first. Established in 2025, headquartered in Kigali.
-            </motion.p>
-
-            {/* SECOND LINE WITH SPACE */}
-            <motion.p
-              className="mt-4"
-              variants={{
-                hidden: { opacity: 0, y: 8 },
-                show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: EASE } },
-              }}
-            >
-              <a
-                href="https://www.bnr.rw/documents/LIST_OF_LICENSED_INSURANCE_AND_REINSURANCE_BROKERS-April_2026.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-accent underline"
-              >
-                We’ve been shortlisted on the BNR list of licensed brokers
-              </a>
             </motion.p>
           </motion.div>
         )}

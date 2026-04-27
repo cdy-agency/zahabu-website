@@ -59,7 +59,7 @@ export default function Footer() {
             <div className="w-48 h-0.5 bg-accent rounded-full mb-5" />
             <p className="text-white/60 text-sm leading-relaxed max-w-sm">
               If you&apos;re inquiring about a claim, service question, or general concern, please use
-              the form below and we&apos;ll get back to you instantly (24/).
+              the form below and we&apos;ll get back to you instantly (24/7).
             </p>
           </div>
 
@@ -72,7 +72,7 @@ export default function Footer() {
               viewBox="0 0 24 24"
               stroke="currentColor"
               strokeWidth={1.5}
-              className="mt-1 flex-shrink-0"
+              className="mt-1 shrink-0"
               aria-hidden
             >
               <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -151,7 +151,7 @@ export default function Footer() {
                 </svg>
               </div>
               <p className="text-white font-bold text-lg">Message sent!</p>
-              <p className="text-white/50 text-sm">We'll be in touch shortly.</p>
+              <p className="text-white/50 text-sm">We&apos;ll be in touch shortly.</p>
             </div>
           ) : (
             <>

@@ -50,7 +50,15 @@ const aboutDropdownItems = [
     label: "About Us",
     description: "Our history & journey",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-4 h-4"
+      >
         <path d="M12 8v4l3 3" />
         <circle cx="12" cy="12" r="10" />
       </svg>
@@ -61,7 +69,15 @@ const aboutDropdownItems = [
     label: "Team Members",
     description: "Meet the people behind us",
     icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth={1.5}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className="w-4 h-4"
+      >
         <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
         <circle cx="9" cy="7" r="4" />
         <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
@@ -71,7 +87,7 @@ const aboutDropdownItems = [
   },
 ];
 
-function AboutDropdown() {
+function AboutDropdown({ scrolled }: { scrolled: boolean }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -138,18 +154,26 @@ function AboutDropdown() {
                       : "text-white/80 hover:bg-white/8 hover:text-white",
                   ].join(" ")}
                 >
-                  <span className={[
-                    "mt-0.5 shrink-0 transition-colors",
-                    active ? "text-accent" : "text-white/50 group-hover:text-accent",
-                  ].join(" ")}>
+                  <span
+                    className={[
+                      "mt-0.5 shrink-0 transition-colors",
+                      active
+                        ? "text-accent"
+                        : "text-white/50 group-hover:text-accent",
+                    ].join(" ")}
+                  >
                     {item.icon}
                   </span>
                   <div>
-                    <p className="text-sm font-semibold leading-tight">{item.label}</p>
-                    <p className={[
-                      "text-xs mt-0.5 leading-tight",
-                      active ? "text-accent/70" : "text-white/40",
-                    ].join(" ")}>
+                    <p className="text-sm font-semibold leading-tight">
+                      {item.label}
+                    </p>
+                    <p
+                      className={[
+                        "text-xs mt-0.5 leading-tight",
+                        active ? "text-accent/70" : "text-white/40",
+                      ].join(" ")}
+                    >
                       {item.description}
                     </p>
                   </div>
@@ -169,6 +193,13 @@ function AboutDropdown() {
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const closeMenu = () => {
     setMenuOpen(false);
@@ -176,23 +207,37 @@ export default function Navbar() {
   };
 
   return (
-    <div className="section-padding absolute top-0 left-0 z-50 w-full min-w-0 max-w-full overflow-x-clip pt-3 sm:pt-4">
+    <div
+      className={[
+        "fixed top-0 left-0 z-50 w-full min-w-0 max-w-full overflow-x-clip transition-all duration-300",
+        scrolled ? "section-padding pt-3 sm:pt-4" : "section-padding pt-3 sm:pt-4",
+      ].join(" ")}
+    >
       <nav
-        className="relative w-full rounded-2xl md:rounded-full bg-primary/80 backdrop-blur-sm px-4 py-3 sm:px-6 md:px-8 md:py-4 border border-white/5 shadow-lg"
+        className={[
+          "relative w-full px-4 py-3 sm:px-6 md:px-8 md:py-4 border transition-all duration-300",
+          scrolled
+            ? "bg-primary shadow-xl border-white/10 md:rounded-full rounded-none"
+            : "bg-primary/80 backdrop-blur-sm border-white/5 shadow-lg md:rounded-full rounded-2xl",
+        ].join(" ")}
         aria-label="Main navigation"
       >
         {/* Desktop */}
         <div className="hidden md:flex items-center justify-between">
           <div className="flex items-center gap-6 text-sm">
             <NavTextLink href="/">Home</NavTextLink>
-            <AboutDropdown />
+            <AboutDropdown scrolled={scrolled} />
             <NavTextLink href="/service">Service</NavTextLink>
           </div>
 
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center gap-2">
-            <span className="text-white font-black text-2xl tracking-tight italic">ZAHABU</span>
+            <span className="text-white font-black text-2xl tracking-tight italic">
+              ZAHABU
+            </span>
             <span className="text-white/40 text-xl font-thin">|</span>
-            <span className="text-white text-sm font-light tracking-[0.3em] uppercase">Solution Ltd</span>
+            <span className="text-white text-sm font-light tracking-[0.3em] uppercase">
+              Solution Ltd
+            </span>
           </div>
 
           <Link
@@ -206,11 +251,17 @@ export default function Navbar() {
         {/* Mobile */}
         <div className="flex md:hidden flex-col gap-0">
           <div className="flex items-center justify-between gap-3 min-h-[2.5rem]">
-            <Link href="/" onClick={closeMenu} className="flex min-w-0 items-center gap-1.5 sm:gap-2">
+            <Link
+              href="/"
+              onClick={closeMenu}
+              className="flex min-w-0 items-center gap-1.5 sm:gap-2"
+            >
               <span className="shrink-0 text-lg font-black italic tracking-tight text-white sm:text-xl">
                 ZAHABU
               </span>
-              <span className="hidden shrink-0 text-base font-thin text-white/40 sm:inline">|</span>
+              <span className="hidden shrink-0 text-base font-thin text-white/40 sm:inline">
+                |
+              </span>
               <span className="truncate text-[10px] font-light uppercase tracking-[0.2em] text-white sm:text-xs sm:tracking-[0.3em]">
                 Solution Ltd
               </span>
@@ -225,12 +276,32 @@ export default function Navbar() {
               onClick={() => setMenuOpen((open) => !open)}
             >
               {menuOpen ? (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M6 18 18 6M6 6l12 12"
+                  />
                 </svg>
               ) : (
-                <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={2}
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
+                  />
                 </svg>
               )}
             </button>
@@ -238,11 +309,19 @@ export default function Navbar() {
 
           <div
             id="mobile-nav-menu"
-            className={menuOpen ? "mt-3 flex flex-col gap-1 border-t border-white/15 pt-3" : "hidden"}
+            className={
+              menuOpen
+                ? "mt-3 flex flex-col gap-1 border-t border-white/15 pt-3"
+                : "hidden"
+            }
           >
             {menuOpen && (
               <>
-                <Link href="/" onClick={closeMenu} className="block py-2.5 text-sm text-white/90">
+                <Link
+                  href="/"
+                  onClick={closeMenu}
+                  className="block py-2.5 text-sm text-white/90"
+                >
                   Home
                 </Link>
 
@@ -283,11 +362,19 @@ export default function Navbar() {
                   )}
                 </div>
 
-                <Link href="/service" onClick={closeMenu} className="block py-2.5 text-sm text-white/90">
+                <Link
+                  href="/service"
+                  onClick={closeMenu}
+                  className="block py-2.5 text-sm text-white/90"
+                >
                   Service
                 </Link>
 
-                <Link href="/contact" onClick={closeMenu} className="block py-2.5 text-sm font-bold text-accent">
+                <Link
+                  href="/contact"
+                  onClick={closeMenu}
+                  className="block py-2.5 text-sm font-bold text-accent"
+                >
                   Contact Us
                 </Link>
               </>

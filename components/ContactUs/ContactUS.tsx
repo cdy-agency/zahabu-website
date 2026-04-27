@@ -123,7 +123,7 @@ export default function ContactPage() {
                 </svg>
               </div>
               <p className="text-primary font-bold text-lg">Message sent!</p>
-              <p className="text-muted text-sm">We'll be in touch shortly.</p>
+              <p className="text-muted text-sm">We&apos;ll be in touch shortly.</p>
             </div>
           ) : (
             /* ── Form ── */
@@ -193,11 +193,6 @@ export default function ContactPage() {
                 </svg>
               </button>
 
-              {/* Helper note so users know what to expect */}
-              {/* <p className="text-muted/60 text-xs leading-relaxed">
-                Clicking <span className="font-semibold text-muted/80">Send Message</span> opens
-                your email app with everything pre-filled — just hit send and it goes straight to our inbox.
-              </p> */}
 
             </div>
           )}

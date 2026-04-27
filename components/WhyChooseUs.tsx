@@ -100,14 +100,14 @@ export default function WhyChooseUs() {
         </div>
         {reduce ? (
           <a
-            href="#contact"
+            href="/contact"
             className="flex-shrink-0 bg-accent text-primary font-bold px-8 py-3 rounded-sm uppercase tracking-widest text-sm hover:opacity-90 transition-opacity duration-200"
           >
             Get In Touch
           </a>
         ) : (
           <motion.a
-            href="#contact"
+            href="/contact"
             className="flex-shrink-0 bg-accent text-primary font-bold px-8 py-3 rounded-sm uppercase tracking-widest text-sm"
             whileHover={BTN_HOVER}
             whileTap={BTN_TAP}
