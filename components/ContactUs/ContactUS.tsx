@@ -12,7 +12,7 @@ const MAPS_EMBED_URL =
   "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3987.516!2d30.0810299!3d-1.9564195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMcKwNTcnMjMuMSJTIDMwwrAwNScwMS4wIkU!5e0!3m2!1sen!2srw!4v1700000000000!5m2!1sen!2srw";
 
 const OFFICE_ADDRESS =
-  "KIGALI - GASABO - KIMIHURURA - MAJYAMBERE - KG 2 AVE - GATE NUMBER 33.";
+  "KIGALI - KG 2 AVE - GATE NUMBER 33.";
 
 const BUSINESS_HOURS = [
   { day: "Monday – Friday", hours: "8:00 am – 6:00 pm" },

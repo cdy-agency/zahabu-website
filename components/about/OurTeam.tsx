@@ -413,22 +413,22 @@ export default function OurTeam() {
         </div>
 
         {/* Team Photos */}
-        <div className="flex items-center gap-4 mb-10">
+        {/* <div className="flex items-center gap-4 mb-10">
           <span className="w-1 h-6 bg-accent rounded-full inline-block" />
           <p className="text-primary text-xs font-black tracking-[0.35em] uppercase">
             Our Team
           </p>
           <div className="flex-1 h-px bg-gray-200" />
-        </div>
+        </div> */}
 
-        <div className="text-center mb-10">
+        {/* <div className="text-center mb-10">
           <h3 className="text-primary text-3xl font-bold mb-3">
             Together We Serve
           </h3>
           <div className="w-10 h-1 bg-accent rounded-full mx-auto" />
-        </div>
+        </div> */}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {teamImages.map((item, i) => (
             <motion.div
               key={i}
@@ -470,7 +470,7 @@ export default function OurTeam() {
               <div className="absolute bottom-0 left-0 right-0 h-1 bg-accent z-10" />
             </motion.div>
           ))}
-        </div>
+        </div> */}
       </SectionTransition>
     </>
   );

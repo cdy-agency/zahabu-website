@@ -1,7 +1,7 @@
 import AboutHero from "@/components/about/AboutHero";
 import CompanyProfile from "@/components/about/CompanyProfile";
 import MissionVision from "@/components/about/MissionVision";
-import ContactSection from "@/components/about/ContactSection";
+// import ContactSection from "@/components/about/ContactSection";
 import WhatWeBelieve from "@/components/WhatWeBelieve";
 import OurClients from "@/components/about/OurClients";
 export default function  (){
@@ -12,7 +12,7 @@ return (
           <MissionVision />
            <OurClients />
            <WhatWeBelieve />
-          <ContactSection />
+          {/* <ContactSection /> */}
      </main>
 )
 }
