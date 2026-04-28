@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { isNavActive } from "@/lib/nav";
+import { Clock, Users, Files } from "lucide-react";
 
 const navLinkClass = (active: boolean) =>
   [
@@ -49,43 +50,22 @@ const aboutDropdownItems = [
     href: "/about/background",
     label: "About Us",
     description: "Our journey",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="w-4 h-4"
-      >
-        <path d="M12 8v4l3 3" />
-        <circle cx="12" cy="12" r="10" />
-      </svg>
-    ),
+    icon: <Clock className="w-4 h-4" strokeWidth={1.5} />,
   },
   {
     href: "/about/team",
     label: "Our team",
     description: "Meet the people behind us",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth={1.5}
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="w-4 h-4"
-      >
-        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-        <circle cx="9" cy="7" r="4" />
-        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-      </svg>
-    ),
+    icon: <Users className="w-4 h-4" strokeWidth={1.5} />,
+  },
+  {
+    href: "/about/company-profile",
+    label: "Company Profile",
+    description: "Learn more about our company",
+    icon: <Files className="w-4 h-4" strokeWidth={1.5} />,
   },
 ];
+ 
 
 function AboutDropdown({ scrolled }: { scrolled: boolean }) {
   const [open, setOpen] = useState(false);
