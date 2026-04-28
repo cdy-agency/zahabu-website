@@ -190,7 +190,7 @@ export default function ServicesPage() {
       <div className="relative overflow-hidden min-h-110 flex items-end">
         <Image
           src="/ourservice.jpg"
-          alt="Our Services background"
+          alt="ZAHABU insurance services page header background"
           fill
           className="object-cover object-center"
           priority

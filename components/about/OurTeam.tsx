@@ -133,7 +133,7 @@ export default function OurTeam() {
       <section className="relative overflow-hidden flex items-end min-h-95 sm:min-h-110">
         <Image
           src="/ourteam.jpg"
-          alt="Our Team"
+          alt="ZAHABU Solutions team photo banner"
           fill
           priority
           sizes="100vw"

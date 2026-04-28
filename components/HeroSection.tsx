@@ -73,7 +73,7 @@ export default function HeroSection() {
     >
       <Image
         src="/insurance.jpg"
-        alt="Auto Appraisal Background"
+        alt="ZAHABU insurance advisory hero background"
         fill
         priority
         sizes="100vw"
