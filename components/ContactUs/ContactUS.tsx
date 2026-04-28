@@ -84,7 +84,7 @@ export default function ContactPage() {
         {/* Background image */}
         <Image
           src="/contact.png"
-          alt="Contact background"
+          alt="ZAHABU Solutions contact page header background"
           fill
           className="object-cover object-center"
           priority

@@ -14,7 +14,7 @@ export default function AboutHero() {
     >
       <Image
         src="/aboutUsimage.jpg"
-        alt="About ZAHABU Solutions"
+        alt="ZAHABU Solutions team and company background"
         fill
         priority
         className="object-cover object-center"
